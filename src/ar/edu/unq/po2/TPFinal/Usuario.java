@@ -10,10 +10,9 @@ public class Usuario {
 	private Preferencia		preferencia;
 	private List<DesafioUsuario> desafios = new ArrayList<DesafioUsuario>();
 	
-	public Usuario(String nombre, Preferencia preferencia, List<DesafioUsuario> desafios) {
+	public Usuario(String nombre, Preferencia preferencia) {
 		this.nombre = nombre;
 		this.preferencia = preferencia;
-		this.desafios = desafios;
 	}
 
 	public String getNombre() {

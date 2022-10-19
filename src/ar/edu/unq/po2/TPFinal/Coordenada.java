@@ -2,8 +2,8 @@ package ar.edu.unq.po2.TPFinal;
 
 public class Coordenada {
 	
-	int x;
-	int y;
+	private int x;
+	private int y;
 	
 	public Coordenada(int x, int y) {
 		this.x = x;
