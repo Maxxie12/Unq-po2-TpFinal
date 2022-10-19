@@ -50,5 +50,5 @@ public class Usuario {
 		return desafios.stream().mapToDouble(desafio -> Double.valueOf(desafioUsuario.getPorcentajeCompletitud())).average().orElse(0.0);
 	}
 
-	
+	ssdfsdfs
 }
