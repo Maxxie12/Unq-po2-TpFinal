@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Usuario {
 	
-	private String 		nombre;
-	private Preferencia		preferencia;
+	private String 			     nombre;
+	private Preferencia			 preferencia;
 	private List<DesafioUsuario> desafios = new ArrayList<DesafioUsuario>();
 	
 	public Usuario(String nombre, Preferencia preferencia) {
@@ -45,8 +45,9 @@ public class Usuario {
 	}
 	
 	//TODO: hacer el calculo de promedio de todos los desafios(incluye hechos y sin terminar)
-	public float promedioCompletitudGeneral(DesafioUsuario desafio) {
-		return 0;
+	public double promedioCompletitudGeneral() {
+		}
+		return desafios.stream().mapToDouble(desafio -> Double.valueOf(desafioUsuario.getPorcentajeCompletitud())).average().orElse(0.0);
 	}
 
 	

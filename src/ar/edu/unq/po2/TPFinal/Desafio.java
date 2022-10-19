@@ -1,8 +1,8 @@
 package ar.edu.unq.po2.TPFinal;
 
 public class Desafio {
-	private Area area;
-	private RestriccionTemporal restriccionTemporal;
+	private 	Area area;
+	private 	RestriccionTemporal restriccionTemporal;
 	private int cantidadMuestrasARecolectar;
 	private int dificultad;
 	private int recompensa;

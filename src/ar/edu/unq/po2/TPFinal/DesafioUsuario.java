@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DesafioUsuario {
-	private Desafio desafio;
+	private Desafio		  desafio;
 	private List<Muestra> muestras = new ArrayList<Muestra>(); 
-	private float porcentajeCompletititud;
+	private double 		  porcentajeCompletititud;
 	private LocalDateTime momentoSuperacion;
 	//El estado lo tenemos que cambiar con el patron state
 	private boolean estado;
@@ -23,7 +23,7 @@ public class DesafioUsuario {
 		return desafio;
 	}
 
-	public float getPorcentajeCompletititud() {
+	public double getPorcentajeCompletititud() {
 		return porcentajeCompletititud;
 	}
 
