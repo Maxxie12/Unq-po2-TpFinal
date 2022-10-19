@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Usuario {
-	
-	private String 			     nombre;
-	private Preferencia			 preferencia;
+
+	private String nombre;
+	private Preferencia preferencia;
 	private List<DesafioUsuario> desafios = new ArrayList<DesafioUsuario>();
-	
+
 	public Usuario(String nombre, Preferencia preferencia) {
 		this.nombre = nombre;
 		this.preferencia = preferencia;
@@ -26,29 +26,29 @@ public class Usuario {
 	public List<DesafioUsuario> getDesafios() {
 		return desafios;
 	}
-	
-	//TODO: Consultar si deberia devolver un desafio o un desafioUsuario 
-	public List<DesafioUsuario> desafiosCompletados(){
+
+	// TODO: Consultar si deberia devolver un desafio o un desafioUsuario
+	public List<DesafioUsuario> desafiosCompletados() {
 		return this.getDesafios().stream().filter(desafio -> desafio.getEstado()).toList();
 	}
-	
+
 	public double porcentajeCompletitud(DesafioUsuario desafio) {
 		return desafio.getPorcentajeCompletititud();
 	}
-	
+
 	public boolean estaCompleto(DesafioUsuario desafio) {
 		return desafio.getEstado();
 	}
-	
+
 	public LocalDateTime fechaCompletado(DesafioUsuario desafio) {
 		return desafio.getMomentoSuperacion();
 	}
-	
-	//TODO: hacer el calculo de promedio de todos los desafios(incluye hechos y sin terminar)
+
+	// TODO: hacer el calculo de promedio de todos los desafios(incluye hechos y sin
+	// terminar)
 	public double promedioCompletitudGeneral() {
-		}
-		return desafios.stream().mapToDouble(desafio -> Double.valueOf(desafio.getPorcentajeCompletitud())).average().orElse(0.0);
+		return desafios.stream().mapToDouble(desafio -> Double.valueOf(desafio.getPorcentajeCompletititud())).average()
+				.orElse(0.0);
 	}
 
-	
 }
