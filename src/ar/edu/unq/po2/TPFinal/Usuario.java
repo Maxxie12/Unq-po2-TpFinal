@@ -32,7 +32,7 @@ public class Usuario {
 		return this.getDesafios().stream().filter(desafio -> desafio.getEstado()).toList();
 	}
 	
-	public float porcentajeCompletitud(DesafioUsuario desafio) {
+	public double porcentajeCompletitud(DesafioUsuario desafio) {
 		return desafio.getPorcentajeCompletititud();
 	}
 	
@@ -47,8 +47,8 @@ public class Usuario {
 	//TODO: hacer el calculo de promedio de todos los desafios(incluye hechos y sin terminar)
 	public double promedioCompletitudGeneral() {
 		}
-		return desafios.stream().mapToDouble(desafio -> Double.valueOf(desafioUsuario.getPorcentajeCompletitud())).average().orElse(0.0);
+		return desafios.stream().mapToDouble(desafio -> Double.valueOf(desafio.getPorcentajeCompletitud())).average().orElse(0.0);
 	}
 
-	ssdfsdfs
+	
 }
