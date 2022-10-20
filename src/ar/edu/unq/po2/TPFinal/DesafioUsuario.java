@@ -12,7 +12,7 @@ public class DesafioUsuario {
 	//El estado lo tenemos que cambiar con el patron state
 	private boolean estado;
 	
-	public DesafioUsuario(Desafio desafio, float porcentajeCompletititud, LocalDateTime momentoSuperacion, boolean estado) {
+	public DesafioUsuario(Desafio desafio, double porcentajeCompletititud, LocalDateTime momentoSuperacion, boolean estado) {
 		this.desafio = desafio;
 		this.porcentajeCompletititud = porcentajeCompletititud;
 		this.momentoSuperacion = momentoSuperacion;
