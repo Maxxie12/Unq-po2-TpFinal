@@ -2,10 +2,10 @@ package ar.edu.unq.po2.TPFinal;
 
 public class Preferencia {
 	private int cantidadMuestras;
-	private int dificultad;
+	private Dificultad dificultad;
 	private int recompensaPreferida;
 	
-	public Preferencia(int cantidadMuestras, int dificultad, int recompensaPreferida) {
+	public Preferencia(int cantidadMuestras, Dificultad dificultad, int recompensaPreferida) {
 		this.cantidadMuestras = cantidadMuestras;
 		this.dificultad = dificultad;
 		this.recompensaPreferida = recompensaPreferida;
@@ -15,7 +15,7 @@ public class Preferencia {
 		return cantidadMuestras;
 	}
 
-	public int getDificultad() {
+	public Dificultad getDificultad() {
 		return dificultad;
 	}
 
