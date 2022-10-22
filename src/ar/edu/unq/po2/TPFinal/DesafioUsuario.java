@@ -10,9 +10,9 @@ public class DesafioUsuario {
 	private double 		  porcentajeCompletititud;
 	private LocalDateTime momentoSuperacion;
 	//El estado lo tenemos que cambiar con el patron state
-	private boolean estado;
+	private EstadoDesafio estado;
 	
-	public DesafioUsuario(Desafio desafio, double porcentajeCompletititud, LocalDateTime momentoSuperacion, boolean estado) {
+	public DesafioUsuario(Desafio desafio, double porcentajeCompletititud, LocalDateTime momentoSuperacion, EstadoDesafio estado) {
 		this.desafio = desafio;
 		this.porcentajeCompletititud = porcentajeCompletititud;
 		this.momentoSuperacion = momentoSuperacion;
@@ -31,13 +31,14 @@ public class DesafioUsuario {
 		return momentoSuperacion;
 	}
 
-	public boolean getEstado() {
+	public EstadoDesafio getEstado() {
 		return estado;
 	}
 	
 	//Aca el usuario acepta el desafio y cambia el estado
 	//(chequear si va aca o en el usuario el metodo)
 	public void aceptarDesafio() {
+		this.estado = new EstadoAceptado();
 		
 	}
 	
@@ -45,6 +46,10 @@ public class DesafioUsuario {
 	//Ver como se acumula el voto para las recomendaciones
 	public void votarDesafio() {
 		
+	}
+	
+	public void setEstadoDesafio(EstadoDesafio estado) {
+		this.estado = estado;
 	}
 	
 	public void agregarMuestra(Muestra muestra) {

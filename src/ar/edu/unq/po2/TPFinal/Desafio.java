@@ -6,13 +6,14 @@ public class Desafio {
 	private int cantidadMuestrasARecolectar;
 	private Dificultad dificultad;
 	private int recompensa;
-
+	
 	public Desafio(Area area, RestriccionTemporal restriccionTemporal, int cantidadMuestrasARecolectar, Dificultad dificultad, int recompensa) {
 		this.area = area;
 		this.restriccionTemporal = restriccionTemporal;
 		this.cantidadMuestrasARecolectar = cantidadMuestrasARecolectar;
 		this.dificultad = dificultad;
 		this.recompensa = recompensa;
+		
 	}
 
 	public Area getArea() {

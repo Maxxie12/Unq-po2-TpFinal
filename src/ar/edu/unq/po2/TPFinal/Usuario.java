@@ -29,7 +29,7 @@ public class Usuario {
 
 	// TODO: Consultar si deberia devolver un desafio o un desafioUsuario
 	public List<DesafioUsuario> desafiosCompletados() {
-		return this.getDesafios().stream().filter(desafio -> desafio.getEstado()).toList();
+		return this.getDesafios().stream().filter(desafio ->  desafio.getEstado().esDesafioCompletado()).toList();
 	}
 
 	public double porcentajeCompletitud(DesafioUsuario desafio) {
@@ -37,7 +37,7 @@ public class Usuario {
 	}
 
 	public boolean estaCompleto(DesafioUsuario desafio) {
-		return desafio.getEstado();
+		return desafio.getEstado().esDesafioCompletado();
 	}
 
 	public LocalDateTime fechaCompletado(DesafioUsuario desafio) {
