@@ -27,7 +27,6 @@ public class Usuario {
 		return desafios;
 	}
 
-	// TODO: Consultar si deberia devolver un desafio o un desafioUsuario
 	public List<DesafioUsuario> desafiosCompletados() {
 		return this.getDesafios().stream().filter(desafio ->  desafio.getEstado().esDesafioCompletado()).toList();
 	}
@@ -41,11 +40,10 @@ public class Usuario {
 	}
 
 	public LocalDateTime fechaCompletado(DesafioUsuario desafio) {
-		return desafio.getMomentoSuperacion();
+		return desafio.getFechaCompletado();
 	}
 
-	// TODO: hacer el calculo de promedio de todos los desafios(incluye hechos y sin
-	// terminar)
+
 	public double promedioCompletitudGeneral() {
 		return desafios.stream().mapToDouble(desafio -> Double.valueOf(desafio.getPorcentajeCompletititud())).average()
 				.orElse(0.0);

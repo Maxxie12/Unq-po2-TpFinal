@@ -2,7 +2,7 @@ package ar.edu.unq.po2.TPFinal.Estado;
 
 import ar.edu.unq.po2.TPFinal.DesafioUsuario;
 
-public class EstadoAceptado implements IEstadoDesafio{
+public class EstadoVencido implements IEstadoDesafio{
 
 	@Override
 	public void aceptarDesafio(DesafioUsuario desafioUsuario) {
@@ -12,23 +12,20 @@ public class EstadoAceptado implements IEstadoDesafio{
 
 	@Override
 	public void desafioCompletado(DesafioUsuario desafioUsuario) {
-		desafioUsuario.setEstadoDesafio(new EstadoCompletado());		
-	}
-
-	@Override
-	public void desafioVencido(DesafioUsuario desafioUsuario) {
 		//No hace nada porque se completa desde otro estado.
 		
 	}
 
 	@Override
+	public void desafioVencido(DesafioUsuario desafioUsuario) {
+		//Ver aca que lanzaria cuando esta vencido.
+		System.out.println("El desafio esta vencido");
+		
+	}
+
+	@Override
 	public boolean esDesafioCompletado() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
-	
-
-
-	
 }

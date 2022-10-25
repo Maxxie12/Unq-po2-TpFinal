@@ -4,55 +4,69 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.unq.po2.TPFinal.Estado.EstadoSinIniciar;
+import ar.edu.unq.po2.TPFinal.Estado.IEstadoDesafio;
+
 public class DesafioUsuario {
-	private Desafio		  desafio;
-	private List<Muestra> muestras = new ArrayList<Muestra>(); 
-	private double 		  porcentajeCompletititud;
-	private LocalDateTime momentoSuperacion;
-	//El estado lo tenemos que cambiar con el patron state
-	private EstadoDesafio estado;
-	
-	public DesafioUsuario(Desafio desafio, double porcentajeCompletititud, LocalDateTime momentoSuperacion, EstadoDesafio estado) {
+	private Desafio desafio;
+	private List<Muestra> muestras;
+	private double porcentajeCompletititud;
+	private LocalDateTime fechaCompletado;
+	private IEstadoDesafio estado;
+	private int votos;
+
+	public DesafioUsuario(Desafio desafio, double porcentajeCompletititud, LocalDateTime momentoSuperacion) {
 		this.desafio = desafio;
+		this.muestras = new ArrayList<Muestra>();
 		this.porcentajeCompletititud = porcentajeCompletititud;
-		this.momentoSuperacion = momentoSuperacion;
-		this.estado = estado;
+		this.fechaCompletado = momentoSuperacion;
+		this.estado = new EstadoSinIniciar(); //Seteamos siempre el estado inicial
+		this.votos = 0;
 	}
 
 	public Desafio getDesafio() {
 		return desafio;
+	}
+	
+	public List<Muestra> getMuestras(){
+		return this.muestras;
 	}
 
 	public double getPorcentajeCompletititud() {
 		return porcentajeCompletititud;
 	}
 
-	public LocalDateTime getMomentoSuperacion() {
-		return momentoSuperacion;
+	public LocalDateTime getFechaCompletado() {
+		return fechaCompletado;
 	}
 
-	public EstadoDesafio getEstado() {
+	public IEstadoDesafio getEstado() {
 		return estado;
 	}
 	
-	//Aca el usuario acepta el desafio y cambia el estado
-	//(chequear si va aca o en el usuario el metodo)
+	public int getVotos() {
+		return this.votos;
+	}
+
 	public void aceptarDesafio() {
-		this.estado = new EstadoAceptado();
-		
+		this.getEstado().aceptarDesafio(this);
 	}
-	
-	//Aca el usuario votaria el desafio 
-	//Ver como se acumula el voto para las recomendaciones
+
 	public void votarDesafio() {
-		
+		this.votos += 1;
 	}
-	
-	public void setEstadoDesafio(EstadoDesafio estado) {
+
+	public void setEstadoDesafio(IEstadoDesafio estado) {
 		this.estado = estado;
 	}
 	
+
 	public void agregarMuestra(Muestra muestra) {
 		this.muestras.add(muestra);
+		
+		//Valida si ya esta cumplida la cantidad de muestras que pide el Desafio, lo cambia de estado a Completo-.
+		if(this.getMuestras().size() == this.getDesafio().getCantidadMuestrasARecolectar()) {
+			this.getEstado().desafioCompletado(this);
+		}
 	}
 }

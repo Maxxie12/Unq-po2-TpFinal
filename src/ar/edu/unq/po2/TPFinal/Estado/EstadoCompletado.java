@@ -1,17 +1,32 @@
-package ar.edu.unq.po2.TPFinal;
+package ar.edu.unq.po2.TPFinal.Estado;
 
-public class EstadoCompletado implements EstadoDesafio{
+import ar.edu.unq.po2.TPFinal.DesafioUsuario;
+
+public class EstadoCompletado implements IEstadoDesafio{
 
 	@Override
-	public Boolean esDesafioCompletado() {
+	public void aceptarDesafio(DesafioUsuario desafioUsuario) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void desafioCompletado(DesafioUsuario desafioUsuario) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void desafioVencido(DesafioUsuario desafioUsuario) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean esDesafioCompletado() {
 		return true;
 	}
 
-	@Override
-	public void desafioAceptado(DesafioUsuario desafioUsuario) {
-		//no se puede aceptar un desafio ya completado
-		
-	}
+	
 
 }
