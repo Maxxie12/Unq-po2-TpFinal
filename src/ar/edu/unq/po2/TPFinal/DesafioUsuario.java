@@ -33,15 +33,15 @@ public class DesafioUsuario {
 	}
 
 	public double getPorcentajeCompletititud() {
-		return porcentajeCompletititud;
+		return this.porcentajeCompletititud;
 	}
 
 	public LocalDateTime getFechaCompletado() {
-		return fechaCompletado;
+		return this.fechaCompletado;
 	}
 
 	public IEstadoDesafio getEstado() {
-		return estado;
+		return this.estado;
 	}
 	
 	public int getVotos() {

@@ -20,17 +20,21 @@ public class Usuario {
 		this.desafios = new ArrayList<DesafioUsuario>();
 		this.tipoRecomendacion = new RecomendadorPorCoincidencia();
 	}
-
+	
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
-
+		
 	public Preferencia getPreferencia() {
-		return preferencia;
+		return this.preferencia;
 	}
 
 	public List<DesafioUsuario> getDesafios() {
-		return desafios;
+		return this.desafios;
+	}
+	
+	public IRecomendador getTipoRecomendacion() {
+		return this.tipoRecomendacion;
 	}
 
 	public List<DesafioUsuario> desafiosCompletados() {
@@ -55,12 +59,16 @@ public class Usuario {
 	}
 	
 	public void buscarDesafios() {
-		this.tipoRecomendacion.recomendarDesafios();
+		this.tipoRecomendacion.recomendarDesafios(this);
 	}
 	
 	public void setTipoRecomendacion(IRecomendador recomendador) {
 		this.tipoRecomendacion = recomendador;
 		this.buscarDesafios();
+	}
+	
+	public void aceptarDesafio(DesafioUsuario desafioUsuario) {
+		desafioUsuario.aceptarDesafio();
 	}
 
 }
