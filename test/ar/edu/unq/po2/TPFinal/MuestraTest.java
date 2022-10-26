@@ -2,6 +2,9 @@ package ar.edu.unq.po2.TPFinal;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+
+import ar.edu.unq.po2.TPFinal.Common.Coordenada;
+
 import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.*;

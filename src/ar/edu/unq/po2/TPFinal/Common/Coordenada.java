@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.TPFinal;
+package ar.edu.unq.po2.TPFinal.Common;
 
 public class Coordenada {
 	

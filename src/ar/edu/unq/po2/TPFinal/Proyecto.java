@@ -3,6 +3,8 @@ package ar.edu.unq.po2.TPFinal;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.unq.po2.TPFinal.Common.Categoria;
+
 public class Proyecto {
 
 	private String nombre;

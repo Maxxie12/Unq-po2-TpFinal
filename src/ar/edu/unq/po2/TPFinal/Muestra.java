@@ -2,6 +2,8 @@ package ar.edu.unq.po2.TPFinal;
 
 import java.time.LocalDateTime;
 
+import ar.edu.unq.po2.TPFinal.Common.Coordenada;
+
 public class Muestra {
 
 	private Coordenada coordenada;

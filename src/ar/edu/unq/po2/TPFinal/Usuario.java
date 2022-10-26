@@ -4,15 +4,21 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.unq.po2.TPFinal.Recomendador.IRecomendador;
+import ar.edu.unq.po2.TPFinal.Recomendador.RecomendadorPorCoincidencia;
+
 public class Usuario {
 
 	private String nombre;
 	private Preferencia preferencia;
-	private List<DesafioUsuario> desafios = new ArrayList<DesafioUsuario>();
+	private List<DesafioUsuario> desafios;
+	private IRecomendador tipoRecomendacion;
 
 	public Usuario(String nombre, Preferencia preferencia) {
 		this.nombre = nombre;
 		this.preferencia = preferencia;
+		this.desafios = new ArrayList<DesafioUsuario>();
+		this.tipoRecomendacion = new RecomendadorPorCoincidencia();
 	}
 
 	public String getNombre() {
@@ -28,7 +34,7 @@ public class Usuario {
 	}
 
 	public List<DesafioUsuario> desafiosCompletados() {
-		return this.getDesafios().stream().filter(desafio ->  desafio.getEstado().esDesafioCompletado()).toList();
+		return this.getDesafios().stream().filter(desafio -> desafio.getEstado().esDesafioCompletado()).toList();
 	}
 
 	public double porcentajeCompletitud(DesafioUsuario desafio) {
@@ -43,10 +49,18 @@ public class Usuario {
 		return desafio.getFechaCompletado();
 	}
 
-
 	public double promedioCompletitudGeneral() {
 		return desafios.stream().mapToDouble(desafio -> Double.valueOf(desafio.getPorcentajeCompletititud())).average()
 				.orElse(0.0);
+	}
+	
+	public void buscarDesafios() {
+		this.tipoRecomendacion.recomendarDesafios();
+	}
+	
+	public void setTipoRecomendacion(IRecomendador recomendador) {
+		this.tipoRecomendacion = recomendador;
+		this.buscarDesafios();
 	}
 
 }

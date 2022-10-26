@@ -1,5 +1,7 @@
 package ar.edu.unq.po2.TPFinal;
 
+import ar.edu.unq.po2.TPFinal.Common.Dificultad;
+
 public class Preferencia {
 	private int cantidadMuestras;
 	private Dificultad dificultad;
