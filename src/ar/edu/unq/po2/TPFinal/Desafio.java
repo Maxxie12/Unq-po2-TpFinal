@@ -1,6 +1,7 @@
 package ar.edu.unq.po2.TPFinal;
 
 import ar.edu.unq.po2.TPFinal.Common.Dificultad;
+import ar.edu.unq.po2.TPFinal.Restriccion.RestriccionTemporal;
 
 public class Desafio {
 	private 	Area area;
