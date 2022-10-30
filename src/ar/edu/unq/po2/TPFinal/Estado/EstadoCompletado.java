@@ -12,7 +12,7 @@ public class EstadoCompletado implements IEstadoDesafio{
 
 	@Override
 	public void desafioCompletado(DesafioUsuario desafioUsuario) {
-		// TODO Auto-generated method stub
+		desafioUsuario.setEstadoDesafio(this);
 		
 	}
 

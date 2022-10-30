@@ -57,7 +57,7 @@ public class DesafioUsuario {
 
 	public void votarDesafio(Integer voto) {
 		if(this.getEstado().esDesafioCompletado() && voto <= 5)
-			this.votos = voto;
+			this.votos = votos + voto;
 	}
 
 	public void setEstadoDesafio(IEstadoDesafio estado) {
