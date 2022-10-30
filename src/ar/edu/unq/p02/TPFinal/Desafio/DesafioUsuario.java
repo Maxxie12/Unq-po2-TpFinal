@@ -1,9 +1,10 @@
-package ar.edu.unq.po2.TPFinal;
+package ar.edu.unq.p02.TPFinal.Desafio;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.unq.po2.TPFinal.Muestra;
 import ar.edu.unq.po2.TPFinal.Common.Coordenada;
 import ar.edu.unq.po2.TPFinal.Estado.EstadoSinIniciar;
 import ar.edu.unq.po2.TPFinal.Estado.EstadoVencido;

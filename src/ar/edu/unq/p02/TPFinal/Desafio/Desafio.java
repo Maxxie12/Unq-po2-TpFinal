@@ -1,5 +1,6 @@
-package ar.edu.unq.po2.TPFinal;
+package ar.edu.unq.p02.TPFinal.Desafio;
 
+import ar.edu.unq.po2.TPFinal.Area;
 import ar.edu.unq.po2.TPFinal.Common.Dificultad;
 import ar.edu.unq.po2.TPFinal.Restriccion.RestriccionTemporal;
 
