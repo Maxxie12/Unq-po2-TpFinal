@@ -14,7 +14,7 @@ public class Sistema {
 	private List<Usuario>  usuarios;  
 	
 		
-	public Sistema(List<Desafio> desafios, List<Proyecto> proyectos, List<Usuario> usuarios) {
+	public Sistema() {
 		this.desafios  = new ArrayList<Desafio>(); 
 		this.proyectos = new ArrayList<Proyecto>();
 		this.usuarios  = new ArrayList<Usuario>();
