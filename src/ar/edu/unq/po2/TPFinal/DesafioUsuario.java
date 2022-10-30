@@ -4,8 +4,11 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.unq.po2.TPFinal.Common.Coordenada;
 import ar.edu.unq.po2.TPFinal.Estado.EstadoSinIniciar;
+import ar.edu.unq.po2.TPFinal.Estado.EstadoVencido;
 import ar.edu.unq.po2.TPFinal.Estado.IEstadoDesafio;
+import net.bytebuddy.asm.Advice.This;
 
 public class DesafioUsuario {
 	private Desafio desafio;
@@ -52,8 +55,9 @@ public class DesafioUsuario {
 		this.getEstado().aceptarDesafio(this);
 	}
 
-	public void votarDesafio() {
-		this.votos += 1;
+	public void votarDesafio(Integer voto) {
+		if(this.getEstado().esDesafioCompletado() && voto <= 5)
+			this.votos = voto;
 	}
 
 	public void setEstadoDesafio(IEstadoDesafio estado) {
@@ -62,11 +66,42 @@ public class DesafioUsuario {
 	
 
 	public void agregarMuestra(Muestra muestra) {
-		this.muestras.add(muestra);
 		
-		//Valida si ya esta cumplida la cantidad de muestras que pide el Desafio, lo cambia de estado a Completo-.
-		if(this.getMuestras().size() == this.getDesafio().getCantidadMuestrasARecolectar()) {
-			this.getEstado().desafioCompletado(this);
+		if(!this.esDesafioVencido() && this.esAreaAceptada(muestra) && this.cumpleRestriccion(muestra)) {
+			this.muestras.add(muestra);
+		
+		
+			if(this.esDesafioCompletado()) {
+				//cambio de estado el desafio porque fue completado
+				this.getEstado().desafioCompletado(this);
+			}
+		
 		}
+	}
+
+	private boolean cumpleRestriccion(Muestra muestra) {
+		//valido que cumpla las restricciones temporales
+		return this.desafio.getRestriccionTemporal().validar(muestra);
+	}
+
+	private boolean esAreaAceptada(Muestra muestra) {
+		//valido si la muestra se encuentra dentro del area del desafio
+		
+		Coordenada coordeanadaA = this.desafio.getArea().getCoordenada();
+		Coordenada coordenadaB = muestra.getCoordenada();
+		
+		return coordeanadaA.getX() == coordenadaB.getX() &&
+				coordenadaB.getY() == coordenadaB.getY();
+		
+	}
+
+	private boolean esDesafioVencido() {
+		//valido que el desafio no este vencido, para poder agregar una muestra nueva. 
+		return this.getEstado().equals(new EstadoVencido());
+	}
+	
+	private boolean esDesafioCompletado(){
+		//Valida si ya esta cumplida la cantidad de muestras que pide el Desafio
+		return this.getMuestras().size() == this.getDesafio().getCantidadMuestrasARecolectar();
 	}
 }
