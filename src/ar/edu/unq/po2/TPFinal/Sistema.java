@@ -3,6 +3,8 @@ package ar.edu.unq.po2.TPFinal;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.unq.p02.TPFinal.Desafio.Desafio;
+
 
 
 
@@ -12,7 +14,7 @@ public class Sistema {
 	private List<Usuario>  usuarios;  
 	
 		
-	public Sistema(List<Desafio> desafios, List<Proyecto> proyectos, List<Usuario> usuarios) {
+	public Sistema() {
 		this.desafios  = new ArrayList<Desafio>(); 
 		this.proyectos = new ArrayList<Proyecto>();
 		this.usuarios  = new ArrayList<Usuario>();

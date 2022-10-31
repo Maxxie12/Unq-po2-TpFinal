@@ -4,12 +4,16 @@ package ar.edu.unq.po2.TPFinal;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
+import ar.edu.unq.p02.TPFinal.Desafio.Desafio;
+import ar.edu.unq.p02.TPFinal.Desafio.DesafioUsuario;
+import ar.edu.unq.po2.TPFinal.Common.Coordenada;
 import ar.edu.unq.po2.TPFinal.Estado.EstadoCompletado;
 
 
 import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 import java.time.LocalDateTime;
 
@@ -37,5 +41,14 @@ public class DesafioUsuarioTest {
 		desafioUsuario.setEstadoDesafio(new EstadoCompletado());
 		assertEquals(desafioUsuario.getEstado().esDesafioCompletado(), true);
 	}
+	
+	@Test
+	public void votarDesafioTest() {
+		desafioUsuario.setEstadoDesafio(new EstadoCompletado());
+		desafioUsuario.votarDesafio(3);
+		desafioUsuario.votarDesafio(2);
+		assertEquals(desafioUsuario.getVotos(), 5);
+	}
+	
 
 }

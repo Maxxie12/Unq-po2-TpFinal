@@ -1,6 +1,6 @@
 package ar.edu.unq.po2.TPFinal.Estado;
 
-import ar.edu.unq.po2.TPFinal.DesafioUsuario;
+import ar.edu.unq.p02.TPFinal.Desafio.DesafioUsuario;
 
 public class EstadoCompletado implements IEstadoDesafio{
 
@@ -12,7 +12,7 @@ public class EstadoCompletado implements IEstadoDesafio{
 
 	@Override
 	public void desafioCompletado(DesafioUsuario desafioUsuario) {
-		// TODO Auto-generated method stub
+		desafioUsuario.setEstadoDesafio(this);
 		
 	}
 

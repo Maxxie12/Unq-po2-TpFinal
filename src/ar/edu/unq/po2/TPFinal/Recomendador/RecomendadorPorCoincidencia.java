@@ -2,7 +2,6 @@ package ar.edu.unq.po2.TPFinal.Recomendador;
 
 import java.util.List;
 
-import ar.edu.unq.po2.TPFinal.Desafio;
 import ar.edu.unq.po2.TPFinal.DesafioUsuario;
 import ar.edu.unq.po2.TPFinal.Usuario;
 
