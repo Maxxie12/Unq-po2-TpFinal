@@ -1,4 +1,4 @@
-package ar.edu.unq.p02.TPFinal.Desafio;
+package ar.edu.unq.po2.TPFinal.Desafio;
 
 import ar.edu.unq.po2.TPFinal.Area;
 import ar.edu.unq.po2.TPFinal.Common.Dificultad;
