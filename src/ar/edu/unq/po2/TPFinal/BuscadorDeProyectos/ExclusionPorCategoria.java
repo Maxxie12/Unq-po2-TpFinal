@@ -12,17 +12,23 @@ public class ExclusionPorCategoria extends BuscadorProyectos {
 		return null;
 	}
 
-	@Override
-	public void agregar(BuscadorProyectos buscadorProyectos) {
-		// TODO Auto-generated method stub
 
-	}
 
 	@Override
-	public void quitar(BuscadorProyectos buscadorProyectos) {
+	public void quitar(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
+
+
+	@Override
+	public void agregar(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }
+
+
 

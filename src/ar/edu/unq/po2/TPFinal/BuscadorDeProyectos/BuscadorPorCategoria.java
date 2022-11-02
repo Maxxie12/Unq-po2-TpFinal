@@ -35,16 +35,17 @@ public class BuscadorPorCategoria extends BuscadorProyectos {
 
 
 	@Override
-	public void agregar(BuscadorProyectos buscadorProyectos) {
+	public void agregar(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void quitar(BuscadorProyectos buscadorProyectos) {
+	public void quitar(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }
