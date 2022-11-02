@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
-import ar.edu.unq.p02.TPFinal.Desafio.Desafio;
+import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
 
 public class SistemaTest {
 	

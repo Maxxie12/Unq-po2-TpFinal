@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.unq.p02.TPFinal.Desafio.DesafioUsuario;
+import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
 import ar.edu.unq.po2.TPFinal.Recomendador.IRecomendador;
 import ar.edu.unq.po2.TPFinal.Recomendador.RecomendadorPorCoincidencia;
 
@@ -14,12 +14,14 @@ public class Usuario {
 	private Preferencia preferencia;
 	private List<DesafioUsuario> desafios;
 	private IRecomendador tipoRecomendacion;
+	private Sistema sistema;
 
-	public Usuario(String nombre, Preferencia preferencia) {
+	public Usuario(String nombre, Preferencia preferencia, Sistema sistema) {
 		this.nombre = nombre;
 		this.preferencia = preferencia;
 		this.desafios = new ArrayList<DesafioUsuario>();
 		this.tipoRecomendacion = new RecomendadorPorCoincidencia();
+		this.sistema= sistema;
 	}
 	
 	public String getNombre() {
@@ -60,7 +62,7 @@ public class Usuario {
 	}
 	
 	public void buscarDesafios() {
-		this.tipoRecomendacion.recomendarDesafios(this);
+		this.tipoRecomendacion.recomendarDesafios(this, this.sistema.getDesafios());
 	}
 	
 	public void setTipoRecomendacion(IRecomendador recomendador) {

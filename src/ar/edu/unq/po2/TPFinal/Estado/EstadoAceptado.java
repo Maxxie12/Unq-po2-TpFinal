@@ -1,6 +1,6 @@
 package ar.edu.unq.po2.TPFinal.Estado;
 
-import ar.edu.unq.p02.TPFinal.Desafio.DesafioUsuario;
+import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
 
 public class EstadoAceptado implements IEstadoDesafio{
 

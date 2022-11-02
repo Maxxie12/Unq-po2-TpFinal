@@ -5,25 +5,35 @@ import java.util.stream.Stream;
 
 import ar.edu.unq.po2.TPFinal.Muestra;
 
-public class RestriccionFecha extends RestriccionTemporal {
+public class RestriccionFecha implements IRestriccionTemporal {
 
-	
-	public RestriccionFecha( LocalDateTime fechaDesde, LocalDateTime fechaHasta) {
-		super.setFechaDesde(fechaDesde);
-		super.setFechaHasta(fechaHasta);
+	private LocalDateTime fechaDesde;
+	private LocalDateTime fechaHasta;
+
+	public RestriccionFecha(LocalDateTime fechaDesde, LocalDateTime fechaHasta) {
+		this.fechaDesde = fechaDesde;
+		this.fechaHasta = fechaHasta;
+	}
+
+	public LocalDateTime getFechaDesde() {
+		return this.fechaDesde;
+	}
+
+	public LocalDateTime getFechaHasta() {
+		return this.fechaHasta;
 	}
 
 	@Override
 	public boolean validar(Muestra muestra) {
-		// TODO Auto-generated method stub
-		return false;
+		return  fechaMayorOIgual(muestra.getFechaYHora()) && fechaMenorOIgual(muestra.getFechaYHora()); 
 	}
 
-	
-		
-	
-	
+	private boolean fechaMayorOIgual(LocalDateTime fechaYHora) {
+		return fechaYHora.isAfter(this.fechaDesde) || fechaYHora.isEqual(this.fechaDesde); 
+	}
+
+	private boolean fechaMenorOIgual(LocalDateTime fechaYHora) {
+		return fechaYHora.isBefore(this.fechaHasta) || fechaYHora.isEqual(this.fechaHasta); 
+	}
+
 }
-
-
-

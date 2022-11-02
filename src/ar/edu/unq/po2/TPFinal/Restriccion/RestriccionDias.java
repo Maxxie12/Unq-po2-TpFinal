@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 import ar.edu.unq.po2.TPFinal.Muestra;
 import ar.edu.unq.po2.TPFinal.Common.DiaSemana;
 
-public class RestriccionDias extends RestriccionTemporal {
+public class RestriccionDias implements IRestriccionTemporal {
 
 	@Override
 	public boolean validar(Muestra muestra) {

@@ -4,9 +4,9 @@ package ar.edu.unq.po2.TPFinal;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
-import ar.edu.unq.p02.TPFinal.Desafio.Desafio;
-import ar.edu.unq.p02.TPFinal.Desafio.DesafioUsuario;
 import ar.edu.unq.po2.TPFinal.Common.Coordenada;
+import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
+import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
 import ar.edu.unq.po2.TPFinal.Estado.EstadoCompletado;
 
 

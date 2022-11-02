@@ -1,17 +1,17 @@
-package ar.edu.unq.p02.TPFinal.Desafio;
+package ar.edu.unq.po2.TPFinal.Desafio;
 
 import ar.edu.unq.po2.TPFinal.Area;
 import ar.edu.unq.po2.TPFinal.Common.Dificultad;
-import ar.edu.unq.po2.TPFinal.Restriccion.RestriccionTemporal;
+import ar.edu.unq.po2.TPFinal.Restriccion.IRestriccionTemporal;
 
 public class Desafio {
 	private 	Area area;
-	private 	RestriccionTemporal restriccionTemporal;
+	private 	IRestriccionTemporal restriccionTemporal;
 	private int cantidadMuestrasARecolectar;
 	private Dificultad dificultad;
 	private int recompensa;
 	
-	public Desafio(Area area, RestriccionTemporal restriccionTemporal, int cantidadMuestrasARecolectar, Dificultad dificultad, int recompensa) {
+	public Desafio(Area area, IRestriccionTemporal restriccionTemporal, int cantidadMuestrasARecolectar, Dificultad dificultad, int recompensa) {
 		this.area = area;
 		this.restriccionTemporal = restriccionTemporal;
 		this.cantidadMuestrasARecolectar = cantidadMuestrasARecolectar;
@@ -24,7 +24,7 @@ public class Desafio {
 		return area;
 	}
 
-	public RestriccionTemporal getRestriccionTemporal() {
+	public IRestriccionTemporal getRestriccionTemporal() {
 		return restriccionTemporal;
 	}
 

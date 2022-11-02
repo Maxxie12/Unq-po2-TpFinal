@@ -1,4 +1,4 @@
-package ar.edu.unq.p02.TPFinal.Desafio;
+package ar.edu.unq.po2.TPFinal.Desafio;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
