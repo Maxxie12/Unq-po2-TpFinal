@@ -16,7 +16,7 @@ public class BusquedaAvanzada extends BuscadorProyectos {
 	}
 
 	@Override
-	public void agregar(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
+	public void agregarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
 		this.PrimerBuscador  = buscadorProyectos1;
 		this.SegundoBuscador = buscadorProyectos2; 
 		
@@ -33,7 +33,7 @@ public class BusquedaAvanzada extends BuscadorProyectos {
 	}
 
 	@Override
-	public void quitar(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
+	public void quitarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
 		// TODO Auto-generated method stub
 		
 	}

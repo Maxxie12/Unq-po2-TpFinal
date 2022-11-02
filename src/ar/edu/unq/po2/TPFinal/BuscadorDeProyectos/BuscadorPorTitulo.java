@@ -27,7 +27,7 @@ public void textoABuscar( String tituloABuscar) {
 
 
 @Override
-public void agregar(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
+public void agregarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
 	// TODO Auto-generated method stub
 	
 }
@@ -35,10 +35,14 @@ public void agregar(BuscadorProyectos buscadorProyectos1, BuscadorProyectos busc
 
 
 @Override
-public void quitar(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
+public void quitarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
 	// TODO Auto-generated method stub
 	
 }
+
+
+
+
 
 
 
