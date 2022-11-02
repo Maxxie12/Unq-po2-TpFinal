@@ -5,6 +5,10 @@ import java.util.List;
 
 import ar.edu.unq.po2.TPFinal.Common.Categoria;
 import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
+import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
+
+
+
 
 public class Sistema {
 	private List<Desafio>  desafios;
