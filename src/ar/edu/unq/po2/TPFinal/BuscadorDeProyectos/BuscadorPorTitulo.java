@@ -24,6 +24,22 @@ public void textoABuscar( String tituloABuscar) {
 	this.tituloABuscar  = tituloABuscar;
  }
 
+
+
+@Override
+public void agregar(BuscadorProyectos buscadorProyectos) {
+	// TODO Auto-generated method stub
+	
+}
+
+
+
+@Override
+public void quitar(BuscadorProyectos buscadorProyectos) {
+	// TODO Auto-generated method stub
+	
+}
+
 }
 	
 

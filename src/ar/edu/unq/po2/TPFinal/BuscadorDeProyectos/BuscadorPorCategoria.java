@@ -33,4 +33,18 @@ public class BuscadorPorCategoria extends BuscadorProyectos {
 		this.categorias = categorias;
 	}
 
+
+	@Override
+	public void agregar(BuscadorProyectos buscadorProyectos) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void quitar(BuscadorProyectos buscadorProyectos) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
