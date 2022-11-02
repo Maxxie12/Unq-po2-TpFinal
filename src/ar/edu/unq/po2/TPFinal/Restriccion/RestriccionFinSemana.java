@@ -6,12 +6,12 @@ import java.time.LocalDateTime;
 import ar.edu.unq.po2.TPFinal.Muestra;
 import ar.edu.unq.po2.TPFinal.Common.DiaSemana;
 
-public class RestriccionSemana implements IRestriccionTemporal {
+public class RestriccionFinSemana implements IRestriccionTemporal {
 
 	@Override
 	public boolean validar(Muestra muestra) {
 		int numeroDia = numeroDia(muestra.getFechaYHora());
-		return numeroDia >= DiaSemana.LUNES.getNumeroDia() && numeroDia <= DiaSemana.VIERNES.getNumeroDia();
+		return numeroDia == DiaSemana.SABADO.getNumeroDia() || numeroDia == DiaSemana.DOMINGO.getNumeroDia();
 	}
 
 	private int numeroDia(LocalDateTime fecha) {

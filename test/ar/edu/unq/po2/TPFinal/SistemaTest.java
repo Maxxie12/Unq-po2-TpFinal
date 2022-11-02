@@ -39,9 +39,6 @@ public class SistemaTest {
 	@Mock
 	private Usuario usuarioB;
 	
-	
-	
-	
 	@BeforeEach
 	public void setup() {
 		sistema = new Sistema();
