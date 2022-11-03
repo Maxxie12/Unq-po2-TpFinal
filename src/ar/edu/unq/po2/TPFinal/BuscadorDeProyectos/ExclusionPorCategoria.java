@@ -4,7 +4,7 @@ import java.util.List;
 
 import ar.edu.unq.po2.TPFinal.Proyecto;
 
-public class ExclusionPorCategoria extends BuscadorProyectos {
+public class ExclusionPorCategoria extends BuscadorPorCategoria {
 
 	@Override
 	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
@@ -13,16 +13,20 @@ public class ExclusionPorCategoria extends BuscadorProyectos {
 	}
 
 	@Override
-	public void agregar(BuscadorProyectos buscadorProyectos) {
+	public void agregarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void quitar(BuscadorProyectos buscadorProyectos) {
+	public void quitarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
+
+
 }
+
+
 

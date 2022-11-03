@@ -11,11 +11,11 @@ public class BuscadorPorTitulo extends BuscadorProyectos {
 
 	@Override
 	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
-		List<Proyecto> proyectoBuscado = new ArrayList<Proyecto>();
+		List<Proyecto> resultadoBusqueda = new ArrayList<Proyecto>();
 		
 		   proyectosAFiltrar.stream().filter(p -> p.getNombre().toUpperCase().contains(tituloABuscar.toUpperCase())).toList();
 		   
-		return proyectoBuscado;
+		return resultadoBusqueda;
 	}
 	
 
@@ -27,7 +27,7 @@ public void textoABuscar( String tituloABuscar) {
 
 
 @Override
-public void agregar(BuscadorProyectos buscadorProyectos) {
+public void agregarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
 	// TODO Auto-generated method stub
 	
 }
@@ -35,10 +35,16 @@ public void agregar(BuscadorProyectos buscadorProyectos) {
 
 
 @Override
-public void quitar(BuscadorProyectos buscadorProyectos) {
+public void quitarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
 	// TODO Auto-generated method stub
 	
 }
+
+
+
+
+
+
 
 }
 	
