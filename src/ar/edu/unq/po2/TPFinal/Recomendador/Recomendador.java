@@ -36,7 +36,7 @@ public abstract class Recomendador {
 
 	}
 
-	private int diferenciaEntre(int caractPreferencia, int caractDesafio) {
-		return Math.abs(caractPreferencia) - Math.abs(caractDesafio);
+	public int diferenciaEntre(int caractPreferencia, int caractDesafio) {
+		return Math.abs(caractPreferencia- caractDesafio);
 	}
 }
