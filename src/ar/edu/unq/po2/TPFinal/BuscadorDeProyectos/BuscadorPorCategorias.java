@@ -1,6 +1,6 @@
 package ar.edu.unq.po2.TPFinal.BuscadorDeProyectos;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import ar.edu.unq.po2.TPFinal.Proyecto;

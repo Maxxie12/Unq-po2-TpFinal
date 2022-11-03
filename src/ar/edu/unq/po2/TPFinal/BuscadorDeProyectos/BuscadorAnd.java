@@ -5,11 +5,22 @@ import java.util.ArrayList;
 
 import ar.edu.unq.po2.TPFinal.Proyecto;
 
-public class BuscadorAnd extends BusquedaAvanzada {
+public class BuscadorAnd extends BuscadorProyectos {
+	
+	private BuscadorProyectos PrimerBuscador;
+	private BuscadorProyectos SegundoBuscador;
 	
 	public BuscadorAnd(BuscadorProyectos primerBuscador, BuscadorProyectos segundoBuscador) {	// CONSTRUCTOR
 		this.agregarBuscadores(primerBuscador, segundoBuscador);
 		
+	}	
+
+	public BuscadorProyectos getPrimerBuscador() {
+		return PrimerBuscador;
+	}
+
+	public BuscadorProyectos getSegundoBuscador() {
+		return SegundoBuscador;
 	}
 
 	public  List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar){
@@ -22,6 +33,18 @@ public class BuscadorAnd extends BusquedaAvanzada {
 		
 		proyectosAFiltrarConBuscador1.retainAll(proyectosAFiltrarConBuscador2); // Me quedo con los proyectos que aparecen en ambas listas
 		return(proyectosAFiltrarConBuscador1);
+		
+	}
+
+	@Override
+	public void agregarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void quitarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
+		// TODO Auto-generated method stub
 		
 	}
 	
