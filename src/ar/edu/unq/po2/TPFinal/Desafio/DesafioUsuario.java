@@ -9,7 +9,6 @@ import ar.edu.unq.po2.TPFinal.Common.Coordenada;
 import ar.edu.unq.po2.TPFinal.Estado.EstadoSinIniciar;
 import ar.edu.unq.po2.TPFinal.Estado.EstadoVencido;
 import ar.edu.unq.po2.TPFinal.Estado.IEstadoDesafio;
-import net.bytebuddy.asm.Advice.This;
 
 public class DesafioUsuario {
 	private Desafio desafio;
