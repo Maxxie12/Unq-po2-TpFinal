@@ -3,8 +3,11 @@ package ar.edu.unq.po2.TPFinal.BuscadorDeProyectos;
 import java.util.List;
 
 import ar.edu.unq.po2.TPFinal.Proyecto;
+import ar.edu.unq.po2.TPFinal.Common.Categoria;
 
 public class ExclusionPorCategoria extends BuscadorPorCategoria {
+	
+	private List<Categoria> categorias;
 
 	@Override
 	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
