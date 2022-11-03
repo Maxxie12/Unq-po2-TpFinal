@@ -1,14 +1,14 @@
 package ar.edu.unq.po2.TPFinal.Recomendador;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.unq.po2.TPFinal.Preferencia;
 import ar.edu.unq.po2.TPFinal.Usuario;
 import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
-import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
 
 public abstract class Recomendador {
-	public abstract List<DesafioUsuario> recomendarDesafios(Usuario usuario, List<Desafio> desafios);
+	public abstract List<Desafio> recomendarDesafios(Usuario usuario, List<Desafio> desafios);
 
 	public List<Desafio> desafiosOrdenadosPorCoincidencia(Usuario usuario, List<Desafio> desafios) {
 		List<Desafio> sortDesafios = desafios.stream()
@@ -17,8 +17,14 @@ public abstract class Recomendador {
 				.toList();
 		return sortDesafios;
 	}
+	
+	public List<Desafio> desafioDeDesafioUsuario(Usuario usuario){
+		List<Desafio> desafiosUsuario = new ArrayList<Desafio>();
+		desafiosUsuario= usuario.getDesafios().stream().map(desafio -> desafio.getDesafio()).toList();
+		return desafiosUsuario;
+	}
 
-	public Integer coincidenciaDesafio(Preferencia preferencia, Desafio desafio) {
+	private Integer coincidenciaDesafio(Preferencia preferencia, Desafio desafio) {
 
 		int diferenciaCantMuestras = diferenciaEntre(preferencia.getCantidadMuestras(),
 				desafio.getCantidadMuestrasARecolectar());
@@ -30,7 +36,7 @@ public abstract class Recomendador {
 
 	}
 
-	public int diferenciaEntre(int caractPreferencia, int caractDesafio) {
+	private int diferenciaEntre(int caractPreferencia, int caractDesafio) {
 		return Math.abs(caractPreferencia) - Math.abs(caractDesafio);
 	}
 }

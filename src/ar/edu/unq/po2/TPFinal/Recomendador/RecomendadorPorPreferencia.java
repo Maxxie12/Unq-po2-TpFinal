@@ -4,18 +4,13 @@ import java.util.List;
 
 import ar.edu.unq.po2.TPFinal.Usuario;
 import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
-import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
 
 public class RecomendadorPorPreferencia extends Recomendador {
 
 	@Override
-	public List<DesafioUsuario> recomendarDesafios(Usuario usuario, List<Desafio> desafios) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Desafio> recomendarDesafios(Usuario usuario, List<Desafio> desafios) {
+		return this.desafiosOrdenadosPorCoincidencia(usuario, desafios).stream()
+				.filter(desafio -> !this.desafioDeDesafioUsuario(usuario).contains(desafio)).limit(5).toList();
 	}
-	
-	
-
-	
 
 }
