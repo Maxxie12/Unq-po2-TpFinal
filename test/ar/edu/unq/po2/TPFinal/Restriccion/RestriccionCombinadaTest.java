@@ -19,10 +19,9 @@ class RestriccionCombinadaTest {
 	private RestriccionFinSemana restriccionFinSemana;
 	private RestriccionSemana restriccionSemana;
 	
-	private LocalDateTime fechaMuestra;
+
 	private LocalDateTime fechaDesde;
 	private LocalDateTime fechaHasta;
-	private LocalDateTime diaSemana;
 	private LocalDateTime diaFinSemana;
 	
 	private Muestra muestraFinSemana;
@@ -35,12 +34,9 @@ class RestriccionCombinadaTest {
 	@BeforeEach
 	public void setUp() {
 		
-		fechaMuestra = LocalDateTime.parse("2022-11-12T15:15");
 		
 		fechaDesde =LocalDateTime.parse("2022-10-05T15:15");
 		fechaHasta = LocalDateTime.parse("2022-11-28T15:15");
-		
-		diaSemana = LocalDateTime.parse("2022-11-02T15:15");
 		diaFinSemana = LocalDateTime.parse("2022-11-06T17:30");
 		
 		this.restriccionCombinada = new RestriccionCombinada();
