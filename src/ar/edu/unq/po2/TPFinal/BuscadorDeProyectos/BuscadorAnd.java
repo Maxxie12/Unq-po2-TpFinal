@@ -20,8 +20,7 @@ public class BuscadorAnd extends BusquedaAvanzada {
 		proyectosAFiltrarConBuscador1.addAll(this.getPrimerBuscador().filtrar(proyectosAFiltrar));
 		proyectosAFiltrarConBuscador2.addAll(this.getSegundoBuscador().filtrar(proyectosAFiltrar));
 		
-		proyectosAFiltrarConBuscador1.retainAll(proyectosAFiltrarConBuscador2);
-		
+		proyectosAFiltrarConBuscador1.retainAll(proyectosAFiltrarConBuscador2); // Me quedo con los proyectos que aparecen en ambas listas
 		return(proyectosAFiltrarConBuscador1);
 		
 	}

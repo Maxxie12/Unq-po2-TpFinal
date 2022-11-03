@@ -11,11 +11,11 @@ public class BuscadorPorTitulo extends BuscadorProyectos {
 
 	@Override
 	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
-		List<Proyecto> proyectoBuscado = new ArrayList<Proyecto>();
+		List<Proyecto> resultadoBusqueda = new ArrayList<Proyecto>();
 		
 		   proyectosAFiltrar.stream().filter(p -> p.getNombre().toUpperCase().contains(tituloABuscar.toUpperCase())).toList();
 		   
-		return proyectoBuscado;
+		return resultadoBusqueda;
 	}
 	
 

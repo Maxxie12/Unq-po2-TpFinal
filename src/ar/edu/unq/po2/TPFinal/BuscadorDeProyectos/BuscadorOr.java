@@ -18,7 +18,7 @@ public class BuscadorOr extends BusquedaAvanzada {
 	proyectosAFiltrarConBuscador1.addAll(this.getPrimerBuscador().filtrar(proyectosAFiltrar));
 	proyectosAFiltrarConBuscador2.addAll(this.getSegundoBuscador().filtrar(proyectosAFiltrar));
 	
-	proyectosAFiltrarConBuscador1.removeAll(proyectosAFiltrarConBuscador2);
+	proyectosAFiltrarConBuscador1.removeAll(proyectosAFiltrarConBuscador2); // Me quedo con los proyectos que NO se repiten en ambas listas
 	
 	return (proyectosAFiltrarConBuscador1);
 	
