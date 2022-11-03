@@ -19,7 +19,6 @@ class RestriccionFechaTest {
 	private LocalDateTime fechaDesde;
 	private LocalDateTime fechaHasta;
 	
-	
 	private Muestra muestraValida;
 	private Muestra muestraFechaSuperior;
 	private Muestra muestraFechaInferior;
