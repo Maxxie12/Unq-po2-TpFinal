@@ -5,22 +5,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
-import ar.edu.unq.po2.TPFinal.Recomendador.IRecomendador;
-import ar.edu.unq.po2.TPFinal.Recomendador.RecomendadorPorCoincidencia;
+import ar.edu.unq.po2.TPFinal.Recomendador.Recomendador;
+import ar.edu.unq.po2.TPFinal.Recomendador.RecomendadorPorPreferencia;
 
 public class Usuario {
 
 	private String nombre;
 	private Preferencia preferencia;
 	private List<DesafioUsuario> desafios;
-	private IRecomendador tipoRecomendacion;
+	private Recomendador tipoRecomendacion;
 	private Sistema sistema;
 
 	public Usuario(String nombre, Preferencia preferencia, Sistema sistema) {
 		this.nombre = nombre;
 		this.preferencia = preferencia;
 		this.desafios = new ArrayList<DesafioUsuario>();
-		this.tipoRecomendacion = new RecomendadorPorCoincidencia();
+		this.tipoRecomendacion = new RecomendadorPorPreferencia();
 		this.sistema= sistema;
 	}
 	
@@ -36,7 +36,7 @@ public class Usuario {
 		return this.desafios;
 	}
 	
-	public IRecomendador getTipoRecomendacion() {
+	public Recomendador getTipoRecomendacion() {
 		return this.tipoRecomendacion;
 	}
 
@@ -65,7 +65,7 @@ public class Usuario {
 		this.tipoRecomendacion.recomendarDesafios(this, this.sistema.getDesafios());
 	}
 	
-	public void setTipoRecomendacion(IRecomendador recomendador) {
+	public void setTipoRecomendacion(Recomendador recomendador) {
 		this.tipoRecomendacion = recomendador;
 		this.buscarDesafios();
 	}

@@ -68,4 +68,6 @@ class RestriccionCombinadaTest {
 		assertEquals(false, restriccionCombinada.validar(muestraFinSemana));
 	}
 
+	//TODO: Agregar mas test con diferentes muestras 
+	
 }

@@ -5,9 +5,8 @@ import java.util.List;
 import ar.edu.unq.po2.TPFinal.Usuario;
 import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
 import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
-import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
 
-public class RecomendadorPorFavorito extends IRecomendador {
+public class RecomendadorPorFavorito extends Recomendador {
 
 	@Override
 	public List<DesafioUsuario> recomendarDesafios(Usuario usuario, List<Desafio> desafios) {
