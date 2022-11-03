@@ -81,6 +81,7 @@ public class DesafioUsuarioTest {
 	
 	@Test
 	public void testesDesafioCompletado() {
+		desafioUsuario2.aceptarDesafio();
 		desafioUsuario2.agregarMuestra(muestra);
 		assertEquals(desafioUsuario2.getEstado().esDesafioCompletado(), new EstadoCompletado().esDesafioCompletado());
 		

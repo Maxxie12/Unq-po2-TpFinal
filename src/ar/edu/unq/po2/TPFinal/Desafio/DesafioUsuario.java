@@ -75,7 +75,7 @@ public class DesafioUsuario {
 		
 			if(this.esDesafioCompletado()) {
 				//cambio de estado el desafio porque fue completado
-				this.setEstadoDesafio(new EstadoCompletado());
+				this.getEstado().desafioCompletado(this);
 			}
 		
 		}
