@@ -1,18 +1,23 @@
 package ar.edu.unq.po2.TPFinal.BuscadorDeProyectos;
 
+import java.util.ArrayList;
 import java.util.List;
-
 import ar.edu.unq.po2.TPFinal.Proyecto;
-import ar.edu.unq.po2.TPFinal.Common.Categoria;
+
 
 public class ExclusionPorCategoria extends BuscadorPorCategoria {
 	
-	private List<Categoria> categorias;
 
 	@Override
 	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Proyecto> resultadosDeLaBusqueda = new ArrayList<Proyecto>();
+		
+		for (Proyecto proyecto : proyectosAFiltrar) {
+			if (!(proyecto.getCategorias().containsAll(this.getCategorias()))) {
+				resultadosDeLaBusqueda.add(proyecto);
+			}
+		}
+		return resultadosDeLaBusqueda;
 	}
 
 	@Override
