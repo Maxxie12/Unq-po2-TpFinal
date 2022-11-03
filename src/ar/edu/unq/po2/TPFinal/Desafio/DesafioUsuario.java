@@ -6,6 +6,7 @@ import java.util.List;
 
 import ar.edu.unq.po2.TPFinal.Muestra;
 import ar.edu.unq.po2.TPFinal.Common.Coordenada;
+import ar.edu.unq.po2.TPFinal.Estado.EstadoCompletado;
 import ar.edu.unq.po2.TPFinal.Estado.EstadoSinIniciar;
 import ar.edu.unq.po2.TPFinal.Estado.EstadoVencido;
 import ar.edu.unq.po2.TPFinal.Estado.IEstadoDesafio;

@@ -4,32 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.unq.po2.TPFinal.Proyecto;
+import ar.edu.unq.po2.TPFinal.Common.Categoria;
 
 
-public class BuscadorPorCategoria extends BuscadorProyectos {
+public class BuscadorPorCategorias extends BuscadorProyectos {
 	
-	private List<String> categorias;
+	private List<Categoria> categorias;
 	
 
-	@Override
-	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
-		List<Proyecto> resultadosDeLaBusqueda = new ArrayList<Proyecto>();
-		
-		for (Proyecto proyecto : proyectosAFiltrar) {
-			if (proyecto.getCategorias().containsAll(this.getCategorias())) {
-				resultadosDeLaBusqueda.add(proyecto);
-			}
-		}
-		return resultadosDeLaBusqueda;
-	}
-
-
-	public List<String> getCategorias() {
+	public List<Categoria> getCategorias() {
 		return categorias;
 	}
 
 
-	public void setCategorias(List<String> categorias) {
+	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
 	}
 
@@ -45,6 +33,13 @@ public class BuscadorPorCategoria extends BuscadorProyectos {
 	public void quitarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
