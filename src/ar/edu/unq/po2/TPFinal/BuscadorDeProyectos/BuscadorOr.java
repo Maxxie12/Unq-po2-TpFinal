@@ -7,23 +7,23 @@ import ar.edu.unq.po2.TPFinal.Proyecto;
 
 public class BuscadorOr extends BuscadorProyectos {
   
-    private BuscadorProyectos PrimerBuscador;
-	private BuscadorProyectos SegundoBuscador;
+    private BuscadorProyectos primerBuscador;
+	private BuscadorProyectos segundoBuscador;
 
 	public void setPrimerBuscador(BuscadorProyectos primerBuscador) {
-		PrimerBuscador = primerBuscador;
+		this.primerBuscador = primerBuscador;
 	}
 
 	public void setSegundoBuscador(BuscadorProyectos segundoBuscador) {
-		SegundoBuscador = segundoBuscador;
+		this.segundoBuscador = segundoBuscador;
 	}
 
 	public BuscadorProyectos getPrimerBuscador() {
-		return PrimerBuscador;
+		return this.primerBuscador;
 	}
 
    	public BuscadorProyectos getSegundoBuscador() {
-		return SegundoBuscador;
+		return this.segundoBuscador;
 	}
  
  public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar){
