@@ -18,16 +18,18 @@ public class BuscadorNot extends BuscadorProyectos {
 	 }
 
 	@Override
-	public void agregarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
+	public void agregarBuscador(BuscadorProyectos buscadorProyectos) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void quitarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
+	public void quitarBuscador(BuscadorProyectos buscadorProyectos) {
 		// TODO Auto-generated method stub
 		
 	}
+
+
 	
 	
 

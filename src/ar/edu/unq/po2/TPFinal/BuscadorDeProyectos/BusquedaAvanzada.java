@@ -14,18 +14,18 @@ public class BusquedaAvanzada extends BuscadorProyectos {
 	}
 
 	@Override
-	public void agregarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
-		
-	}
-
-	
-
-	@Override
-	public void quitarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
+	public void agregarBuscador(BuscadorProyectos buscadorProyectos) {
 		// TODO Auto-generated method stub
 		
 	}
-	
+
+	@Override
+	public void quitarBuscador(BuscadorProyectos buscadorProyectos) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	
 	
 }

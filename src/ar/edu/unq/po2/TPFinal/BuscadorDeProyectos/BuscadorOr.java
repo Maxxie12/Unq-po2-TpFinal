@@ -9,12 +9,16 @@ public class BuscadorOr extends BuscadorProyectos {
   
     private BuscadorProyectos PrimerBuscador;
 	private BuscadorProyectos SegundoBuscador;
-	
-	public BuscadorOr(BuscadorProyectos primerBuscador, BuscadorProyectos segundoBuscador) {
-	 this.agregarBuscadores(primerBuscador, segundoBuscador);
- }
- 
-   	public BuscadorProyectos getPrimerBuscador() {
+
+	public void setPrimerBuscador(BuscadorProyectos primerBuscador) {
+		PrimerBuscador = primerBuscador;
+	}
+
+	public void setSegundoBuscador(BuscadorProyectos segundoBuscador) {
+		SegundoBuscador = segundoBuscador;
+	}
+
+	public BuscadorProyectos getPrimerBuscador() {
 		return PrimerBuscador;
 	}
 
@@ -37,14 +41,18 @@ public class BuscadorOr extends BuscadorProyectos {
  }
 
 @Override
-public void agregarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
+public void agregarBuscador(BuscadorProyectos buscadorProyectos) {
 	// TODO Auto-generated method stub
 	
 }
 
 @Override
-public void quitarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
+public void quitarBuscador(BuscadorProyectos buscadorProyectos) {
 	// TODO Auto-generated method stub
+	
+}
+
+
 	
 }
  
