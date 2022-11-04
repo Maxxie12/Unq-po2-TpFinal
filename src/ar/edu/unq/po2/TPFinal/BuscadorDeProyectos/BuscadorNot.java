@@ -13,13 +13,16 @@ public class BuscadorNot extends BuscadorProyectos {
 	}
 	
 	 public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
+		 List<Proyecto> busquedaNegada = proyectosAFiltrar;
+		  
+		 busquedaNegada.removeAll(buscadorANegar.filtrar(proyectosAFiltrar));
 		 
-		 
+		 return busquedaNegada;
 	 }
 
 	@Override
 	public void agregarBuscador(BuscadorProyectos buscadorProyectos) {
-		// TODO Auto-generated method stub
+		this.buscadorANegar = buscadorProyectos;
 		
 	}
 

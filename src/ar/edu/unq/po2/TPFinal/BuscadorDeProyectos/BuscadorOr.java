@@ -22,10 +22,9 @@ public class BuscadorOr extends BuscadorProyectos {
 		return this.primerBuscador;
 	}
 
-   	public BuscadorProyectos getSegundoBuscador() {
+	public BuscadorProyectos getSegundoBuscador() {
 		return this.segundoBuscador;
 	}
- 
  public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar){
     List<Proyecto> proyectosAFiltrarConBuscador1 = new ArrayList <Proyecto>();
 	List<Proyecto> proyectosAFiltrarConBuscador2 = new ArrayList <Proyecto>();
@@ -44,16 +43,16 @@ public class BuscadorOr extends BuscadorProyectos {
 public void agregarBuscador(BuscadorProyectos buscadorProyectos) {
 	// TODO Auto-generated method stub
 	
-}
+  }
 
 @Override
 public void quitarBuscador(BuscadorProyectos buscadorProyectos) {
 	// TODO Auto-generated method stub
 	
-}
+  }
 
 
 	
 }
  
-}
+
