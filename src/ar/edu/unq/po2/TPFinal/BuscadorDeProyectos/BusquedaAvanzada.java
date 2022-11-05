@@ -1,6 +1,7 @@
 package ar.edu.unq.po2.TPFinal.BuscadorDeProyectos;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,7 +15,7 @@ public class BusquedaAvanzada extends BuscadorProyectos {
 	@Override
 	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
 		List<BuscadorProyectos> buscadoresAAplicar = this.buscadoresAAplicar;
-		List<Proyecto> resultadosFiltrados = null;
+		List<Proyecto> resultadosFiltrados = new ArrayList<Proyecto>();
 		
 		for (BuscadorProyectos buscadores : buscadoresAAplicar) {
 			resultadosFiltrados = buscadores.filtrar(proyectosAFiltrar);
