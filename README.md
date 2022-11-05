@@ -43,9 +43,13 @@ para poder hacer busquedas convinadas por titulares o categorias. Los roles que 
 _Segundo utilizamos el patron Composite para las restricciones temporales que van a tener nuestros Desafios.
 Los roles que representan son:
 
+```
+
 * Component:  IRestriccionTemporal
 * Composite:  RestriccionCombinada  
 * Leaf: RestriccionFinSemana, RestriccionSemana y RestriccionFecha
+
+```
 
 
 # Tablero de tareas
