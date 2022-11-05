@@ -5,7 +5,7 @@
 
 ### State 📌
 
-_Para los estados en los que puede estar un desafio del usuario utilizamos el patron State. Los roles que
+Para los estados en los que puede estar un desafio del usuario utilizamos el patron State. Los roles que
 representan son:
 
 ```
@@ -18,7 +18,7 @@ representan son:
 
 ### Strategy 📌
 
-_Para las recomendaciones de desafios que se le puede dar a un Usuario utilizamos el patron Strategy, este patron nos va
+Para las recomendaciones de desafios que se le puede dar a un Usuario utilizamos el patron Strategy, este patron nos va
 a permitir recomendarles desafios a nuestros Usuarios, se encuentran dos formas de recomendacion RecomendadorPorPreferencia o
 RecomendadorPorFavorito. Los roles que representan son:
 
@@ -31,7 +31,7 @@ RecomendadorPorFavorito. Los roles que representan son:
 
 ### Composite 📌
 
-_Primero utilizamos el patron Composite para la parte de busqueda de proyectos. Lo usamos en esta parte
+Primero utilizamos el patron Composite para la parte de busqueda de proyectos. Lo usamos en esta parte
 para poder hacer busquedas convinadas por titulares o categorias. Los roles que representan son:
 
 ```
@@ -40,7 +40,7 @@ para poder hacer busquedas convinadas por titulares o categorias. Los roles que 
 * Leaf: BusquedaPorCategoria y BusquedaPorTitulo
 
 ```
-_Segundo utilizamos el patron Composite para las restricciones temporales que van a tener nuestros Desafios.
+Segundo utilizamos el patron Composite para las restricciones temporales que van a tener nuestros Desafios.
 Los roles que representan son:
 
 ```
