@@ -1,28 +1,26 @@
 package ar.edu.unq.po2.TPFinal.BuscadorDeProyectos;
 
-import java.util.ArrayList;
 import java.util.List;
 import ar.edu.unq.po2.TPFinal.Proyecto;
 
 public class BuscadorPorTitulo extends BuscadorProyectos {
-	
-	private String tituloABuscar;
+	private String fraseABuscar = "";
 	
 
+	
+   public void fraseABuscar(String fraseABuscar) {
+	   this.fraseABuscar = fraseABuscar;
+   }
+   
+   
 	@Override
-	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
-		List<Proyecto> resultadoBusqueda = new ArrayList<Proyecto>();
-		
-		   proyectosAFiltrar.stream().filter(p -> p.getNombre().toUpperCase().contains(tituloABuscar.toUpperCase())).toList();
-		   
-		return resultadoBusqueda;
+	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar){
+		return (proyectosAFiltrar.stream().filter(proyecto->proyecto.getNombre().contains(this.fraseABuscar)).toList());
 	}
 	
 
 
-public void textoABuscar( String tituloABuscar) {
-	this.tituloABuscar  = tituloABuscar;
- }
+
 
 
 

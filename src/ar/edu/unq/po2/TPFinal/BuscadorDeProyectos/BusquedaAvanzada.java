@@ -6,23 +6,24 @@ import ar.edu.unq.po2.TPFinal.Proyecto;
 
 public class BusquedaAvanzada extends BuscadorProyectos {
 	
+	private List<BuscadorProyectos> buscadoresAAplicar;
+	
 
 	@Override
 	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
-		// TODO Auto-generated method stub
+		for ()
 		return null;
 	}
 
 	@Override
 	public void agregarBuscador(BuscadorProyectos buscadorProyectos) {
-		// TODO Auto-generated method stub
+		buscadoresAAplicar.add(buscadorProyectos);
 		
 	}
 
 	@Override
 	public void quitarBuscador(BuscadorProyectos buscadorProyectos) {
-		// TODO Auto-generated method stub
-		
+		buscadoresAAplicar.remove(buscadorProyectos);
 	}
 
 
