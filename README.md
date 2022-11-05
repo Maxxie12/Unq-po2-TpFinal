@@ -51,6 +51,10 @@ Los roles que representan son:
 
 ```
 
+### Mockito y Java 📌
+
+* Para mockito se utilizaron los siguientes jar: https://github.com/POO2UNQ/site/tree/main/mockito/framework%20%26%20dependencies/Mockito
+* Se utilizo para los test Junit 5 y el Java utilizado es JavaSE-17
 
 # Tablero de tareas
 
