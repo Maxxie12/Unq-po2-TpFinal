@@ -24,7 +24,7 @@ public class EstadoCompletadoTest {
 	@BeforeEach
 	public void setUp() {
 		estadoCompletado = new EstadoCompletado();
-		desafioUsuario = new DesafioUsuario(desafio, 4, LocalDateTime.now());
+		desafioUsuario = new DesafioUsuario(desafio);
 	}
 	
 	@Test
