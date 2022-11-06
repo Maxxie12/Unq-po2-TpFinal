@@ -1,43 +1,46 @@
 package ar.edu.unq.po2.TPFinal.BuscadorDeProyectos;
 
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import ar.edu.unq.po2.TPFinal.Proyecto;
 
 public class BusquedaAvanzada extends BuscadorProyectos {
 	
-	private BuscadorProyectos PrimerBuscador;
-	private BuscadorProyectos SegundoBuscador;
+	private List<BuscadorProyectos> buscadoresAAplicar;
+	
 
 	@Override
 	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
-		// TODO Auto-generated method stub
-		return null;
+		List<BuscadorProyectos> buscadoresAAplicar = this.buscadoresAAplicar;
+		List<Proyecto> resultadosFiltrados = new ArrayList<Proyecto>();
+		
+		for (BuscadorProyectos buscadores : buscadoresAAplicar) {
+			resultadosFiltrados = buscadores.filtrar(proyectosAFiltrar);
+			
+		}
+		
+	   return (resultadosFiltrados = resultadosFiltrados.stream()
+               .collect(Collectors.toSet())
+               .stream()
+               .collect(Collectors.toList()));
+	          
 	}
 
 	@Override
-	public void agregarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
-		this.PrimerBuscador  = buscadorProyectos1;
-		this.SegundoBuscador = buscadorProyectos2; 
+	public void agregarBuscador(BuscadorProyectos buscadorProyectos) {
+		buscadoresAAplicar.add(buscadorProyectos);
 		
-	}
-
-	
-
-	public BuscadorProyectos getPrimerBuscador() {
-		return PrimerBuscador;
-	}
-
-	public BuscadorProyectos getSegundoBuscador() {
-		return SegundoBuscador;
 	}
 
 	@Override
-	public void quitarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2) {
-		// TODO Auto-generated method stub
-		
+	public void quitarBuscador(BuscadorProyectos buscadorProyectos) {
+		buscadoresAAplicar.remove(buscadorProyectos);
 	}
-	
+
+
 	
 	
 }

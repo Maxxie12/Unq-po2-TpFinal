@@ -8,9 +8,9 @@ public abstract class BuscadorProyectos {
 
 	public abstract List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar);
 	
-	public abstract void agregarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2);
+	public abstract void agregarBuscador(BuscadorProyectos buscadorProyectos);
 	
-	public abstract void quitarBuscadores(BuscadorProyectos buscadorProyectos1, BuscadorProyectos buscadorProyectos2);
+	public abstract void quitarBuscador(BuscadorProyectos buscadorProyectos);
 }
 
 

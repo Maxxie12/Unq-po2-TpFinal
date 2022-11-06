@@ -5,11 +5,27 @@ import java.util.ArrayList;
 
 import ar.edu.unq.po2.TPFinal.Proyecto;
 
-public class BuscadorAnd extends BusquedaAvanzada {
+public class BuscadorAnd extends BuscadorProyectos {
 	
-	public BuscadorAnd(BuscadorProyectos primerBuscador, BuscadorProyectos segundoBuscador) {	// CONSTRUCTOR
-		this.agregarBuscadores(primerBuscador, segundoBuscador);
-		
+	private BuscadorProyectos primerBuscador;
+	private BuscadorProyectos segundoBuscador;
+	
+
+
+	public void setPrimerBuscador(BuscadorProyectos primerBuscador) {
+		this.primerBuscador = primerBuscador;
+	}
+
+	public void setSegundoBuscador(BuscadorProyectos segundoBuscador) {
+		this.segundoBuscador = segundoBuscador;
+	}
+
+	public BuscadorProyectos getPrimerBuscador() {
+		return this.primerBuscador;
+	}
+
+	public BuscadorProyectos getSegundoBuscador() {
+		return this.segundoBuscador;
 	}
 
 	public  List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar){
@@ -24,5 +40,18 @@ public class BuscadorAnd extends BusquedaAvanzada {
 		return(proyectosAFiltrarConBuscador1);
 		
 	}
+
+	@Override
+	public void agregarBuscador(BuscadorProyectos buscadorProyectos) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void quitarBuscador(BuscadorProyectos buscadorProyectos) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }
