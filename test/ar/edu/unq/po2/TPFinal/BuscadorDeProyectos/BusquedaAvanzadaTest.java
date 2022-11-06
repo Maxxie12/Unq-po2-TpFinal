@@ -87,6 +87,14 @@ class BusquedaAvanzadaTest {
 	}
 	
 	
+	void listaQueQuedaLuegoDeBusquedaAvanzada() {
+		this.categorias.add(categoria2);
+		buscadorPorTitulo.fraseABuscar("región pampeana");
+		busquedaAvanzada.agregarBuscador(buscadorPorTitulo);
+		busquedaAvanzada.agregarBuscador(buscadorIncluyendoCategorias);
+		busquedaAvanzada.agregarBuscador(buscadorNot);
+		
+		assertTrue(busquedaAvanzada.filtrar(proyectosAFiltrar).size()==3);
 	
+	}
 }
-
