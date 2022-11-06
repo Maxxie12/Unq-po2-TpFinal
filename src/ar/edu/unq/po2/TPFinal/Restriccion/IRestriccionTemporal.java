@@ -1,7 +1,8 @@
 package ar.edu.unq.po2.TPFinal.Restriccion;
 
-import ar.edu.unq.po2.TPFinal.Muestra;
+import java.time.LocalDateTime;
+
 
 public interface IRestriccionTemporal {
-	public boolean validar(Muestra muestra);	
+	public boolean validar(LocalDateTime fechaMuestra);	
 }

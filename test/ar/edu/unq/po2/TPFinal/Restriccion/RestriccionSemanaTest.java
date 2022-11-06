@@ -1,6 +1,8 @@
 package ar.edu.unq.po2.TPFinal.Restriccion;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.time.LocalDateTime;
 
@@ -9,8 +11,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
 import ar.edu.unq.po2.TPFinal.Muestra;
-import ar.edu.unq.po2.TPFinal.Usuario;
-import ar.edu.unq.po2.TPFinal.Common.Coordenada;
 
 class RestriccionSemanaTest {
 
@@ -19,17 +19,14 @@ class RestriccionSemanaTest {
 
 	private LocalDateTime diaSemana;
 	private LocalDateTime diaFinSemana;
-
-	private Muestra muestraSemana;
-	private Muestra muestraFinSemana;
-
+	
 	@Mock
-	Usuario usuario;
-	@Mock
-	Coordenada coordenada;
-
+	private Muestra muestraSemana = mock(Muestra.class);
+	private Muestra muestraFinSemana = mock(Muestra.class);
+	
 	@BeforeEach
 	public void setUp() {
+		//Estos son dias que sabemos que si o si con de dia de la semana y el otro de fin de semana.
 		diaSemana = LocalDateTime.parse("2022-11-02T15:15");
 		diaFinSemana = LocalDateTime.parse("2022-11-06T17:30");
 
@@ -37,29 +34,29 @@ class RestriccionSemanaTest {
 		restriccionFinSemana = new RestriccionFinSemana();
 
 		// Muestra tomada en dia de semana.
-		muestraSemana = new Muestra(coordenada, usuario, diaSemana);
+		when(muestraSemana.getFechaYHora()).thenReturn(diaSemana);
 		// Muestra con fecha fin de semana.
-		muestraFinSemana = new Muestra(coordenada, usuario, diaFinSemana);
+		when(muestraFinSemana.getFechaYHora()).thenReturn(diaFinSemana);
 	}
 
 	@Test
 	void testMuestraSemanaValida() {
-		assertEquals(true, restriccionSemana.validar(muestraSemana));
+		assertTrue(restriccionSemana.validar(muestraSemana.getFechaYHora()));
 	}
 	
 	@Test
 	void testMuestraSemanaInvalida() {
-		assertEquals(false, restriccionSemana.validar(muestraFinSemana));
+		assertFalse(restriccionSemana.validar(muestraFinSemana.getFechaYHora()));
 	}
 	
 	@Test
 	void testMuestraFinSemanaInvalida() {
-		assertEquals(false, restriccionFinSemana.validar(muestraSemana));
+		assertFalse(restriccionFinSemana.validar(muestraSemana.getFechaYHora()));
 	}
 	
 	@Test
 	void testMuestraFinSemanaValida() {
-		assertEquals(true, restriccionFinSemana.validar(muestraFinSemana));
+		assertTrue(restriccionFinSemana.validar(muestraFinSemana.getFechaYHora()));
 	}
 
 }

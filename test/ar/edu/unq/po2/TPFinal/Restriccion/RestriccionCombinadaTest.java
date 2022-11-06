@@ -1,6 +1,8 @@
 package ar.edu.unq.po2.TPFinal.Restriccion;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.time.LocalDateTime;
 
@@ -9,8 +11,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
 import ar.edu.unq.po2.TPFinal.Muestra;
-import ar.edu.unq.po2.TPFinal.Usuario;
-import ar.edu.unq.po2.TPFinal.Common.Coordenada;
 
 class RestriccionCombinadaTest {
 
@@ -23,21 +23,22 @@ class RestriccionCombinadaTest {
 	private LocalDateTime fechaDesde;
 	private LocalDateTime fechaHasta;
 	private LocalDateTime diaFinSemana;
-	
-	private Muestra muestraFinSemana;
+	private LocalDateTime diaSemana;
+	private LocalDateTime diaFueraDeFecha;
 
 	@Mock
-	Usuario usuario;
-	@Mock
-	Coordenada coordenada;
+	private Muestra muestraFinSemana = mock(Muestra.class);
+	private Muestra muestraSemana = mock(Muestra.class);
+	private Muestra muestraFueraDeFecha = mock(Muestra.class);
 
 	@BeforeEach
-	public void setUp() {
-		
-		
+	public void setUp() { 	
 		fechaDesde =LocalDateTime.parse("2022-10-05T15:15");
 		fechaHasta = LocalDateTime.parse("2022-11-28T15:15");
 		diaFinSemana = LocalDateTime.parse("2022-11-06T17:30");
+		diaSemana = LocalDateTime.parse("2022-11-09T07:30");
+		//Dia Jueves
+		diaFueraDeFecha = LocalDateTime.parse("2022-05-07T13:30");
 		
 		this.restriccionCombinada = new RestriccionCombinada();
 		this.restriccionFinSemana = new RestriccionFinSemana();
@@ -46,28 +47,45 @@ class RestriccionCombinadaTest {
 		
 		this.restriccionCombinada.addRestriccion(restriccionFinSemana);
 		
-		
-		muestraFinSemana = new Muestra(coordenada, usuario, diaFinSemana);
+		when(muestraFinSemana.getFechaYHora()).thenReturn(diaFinSemana);
+		when(muestraSemana.getFechaYHora()).thenReturn(diaSemana);
+		when(muestraFueraDeFecha.getFechaYHora()).thenReturn(diaFueraDeFecha);
 	}
 	
 	@Test
-	void testRestriccionFinSemana() {
-		assertEquals(true, restriccionCombinada.validar(muestraFinSemana));
+	void testRestriccionFinSemanaValida() {
+		//Aca tiene la restriccion de que sea fin se semana
+		assertTrue(restriccionCombinada.validar(muestraFinSemana.getFechaYHora()));
 	}
 
 	@Test
-	void testAgregandoRestriccionFechas() {
+	void testAgregandoRestriccionFechasValida() {
+		//Aca ademas de la restriccion de finde semana, se le agrega que sea una muestra tomada entre 2 fechas
 		restriccionCombinada.addRestriccion(restriccionFecha);
-		assertEquals(true, restriccionCombinada.validar(muestraFinSemana));
+		assertTrue(restriccionCombinada.validar(muestraFinSemana.getFechaYHora()));
 	}
 	
 	@Test
-	void testRestriccionSemana() {
+	void testRestriccionSemanaInvalida() {
+		//Le reemplazamos la restriccion para que valide si es una muestra durante la semana, cosa que deberia dar false
 		restriccionCombinada.removeRestriccion(restriccionFinSemana);
 		restriccionCombinada.addRestriccion(restriccionSemana);
-		assertEquals(false, restriccionCombinada.validar(muestraFinSemana));
+		assertFalse(restriccionCombinada.validar(muestraFinSemana.getFechaYHora()));
 	}
 
-	//TODO: Agregar mas test con diferentes muestras 
+	@Test
+	void testRestriccionSemanavalida() {
+		//Validamos que la muestra de semana sea valida
+		restriccionCombinada.removeRestriccion(restriccionFinSemana);
+		restriccionCombinada.addRestriccion(restriccionSemana);
+		assertTrue(restriccionCombinada.validar(muestraSemana.getFechaYHora()));
+	} 
+	
+	@Test
+	void testConMuestraFueraDeFechaYDeFinSemana() {
+		//Aca ademas de la restriccion de finde semana, se le agrega que sea una muestra tomada entre 2 fechas
+		restriccionCombinada.addRestriccion(restriccionFecha);
+		assertFalse(restriccionCombinada.validar(muestraFueraDeFecha.getFechaYHora()));
+	}
 	
 }

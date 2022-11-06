@@ -2,8 +2,6 @@ package ar.edu.unq.po2.TPFinal.Restriccion;
 
 import java.time.LocalDateTime;
 
-import ar.edu.unq.po2.TPFinal.Muestra;
-
 public class RestriccionFecha implements IRestriccionTemporal {
 
 	private LocalDateTime fechaDesde;
@@ -23,8 +21,8 @@ public class RestriccionFecha implements IRestriccionTemporal {
 	}
 
 	@Override
-	public boolean validar(Muestra muestra) {
-		return  fechaMayorOIgual(muestra.getFechaYHora()) && fechaMenorOIgual(muestra.getFechaYHora()); 
+	public boolean validar(LocalDateTime fechaMuestra) {
+		return  fechaMayorOIgual(fechaMuestra) && fechaMenorOIgual(fechaMuestra); 
 	}
 
 	private boolean fechaMayorOIgual(LocalDateTime fechaYHora) {

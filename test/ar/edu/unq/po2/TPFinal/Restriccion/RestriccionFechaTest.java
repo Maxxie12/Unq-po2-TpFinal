@@ -1,6 +1,8 @@
 package ar.edu.unq.po2.TPFinal.Restriccion;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.time.LocalDateTime;
 
@@ -9,8 +11,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
 import ar.edu.unq.po2.TPFinal.Muestra;
-import ar.edu.unq.po2.TPFinal.Usuario;
-import ar.edu.unq.po2.TPFinal.Common.Coordenada;
 
 class RestriccionFechaTest {
 
@@ -18,15 +18,11 @@ class RestriccionFechaTest {
 	private LocalDateTime fechaActual;
 	private LocalDateTime fechaDesde;
 	private LocalDateTime fechaHasta;
-	
-	private Muestra muestraValida;
-	private Muestra muestraFechaSuperior;
-	private Muestra muestraFechaInferior;
-	
+
 	@Mock
-	Usuario usuario;
-	@Mock
-	Coordenada coordenada;
+	private Muestra muestraValida = mock(Muestra.class);
+	private Muestra muestraFechaSuperior = mock(Muestra.class);
+	private Muestra muestraFechaInferior = mock(Muestra.class);
 
 	@BeforeEach
 	public void setUp() {
@@ -40,30 +36,29 @@ class RestriccionFechaTest {
 		restriccion = new RestriccionFecha(fechaDesde, fechaHasta);
 		
 		//Aca instancio una muestra valida.
-		muestraValida = new Muestra(coordenada, usuario, fechaActual);
+		when(muestraValida.getFechaYHora()).thenReturn(fechaActual);
 		//Aca que la fecha sobrepasa la fecha hasta.
-		muestraFechaSuperior = new Muestra(coordenada, usuario, fechaActual.plusMonths(2));
+		when(muestraFechaSuperior.getFechaYHora()).thenReturn(fechaActual.plusMonths(2));
 		//Aca la fecha esta por debajo de la fecha desde.
-		muestraFechaInferior = new Muestra(coordenada, usuario, fechaActual.plusMonths(-2));
-		
+		when(muestraFechaInferior.getFechaYHora()).thenReturn(fechaActual.plusMonths(-2));	
 	}
 
 	@Test
 	void testMuestraValida() {
 		System.out.println(muestraValida.getFechaYHora());
-		assertEquals(true, restriccion.validar(muestraValida));
+		assertEquals(true, restriccion.validar(muestraValida.getFechaYHora()));
 	}
 	
 	@Test
 	void testMuestraFechaInferior() {
 		System.out.println(muestraFechaInferior.getFechaYHora());
-		assertEquals(false, restriccion.validar(muestraFechaInferior));
+		assertEquals(false, restriccion.validar(muestraFechaInferior.getFechaYHora()));
 	}
 	
 	@Test
 	void testMuestraFechaSuperior() {
 		System.out.println(muestraFechaSuperior.getFechaYHora());
-		assertEquals(false, restriccion.validar(muestraFechaSuperior));
+		assertEquals(false, restriccion.validar(muestraFechaSuperior.getFechaYHora()));
 	}
 	
 

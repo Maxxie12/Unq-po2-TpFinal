@@ -1,9 +1,8 @@
 package ar.edu.unq.po2.TPFinal.Restriccion;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
-import ar.edu.unq.po2.TPFinal.Muestra;
 
 public class RestriccionCombinada implements IRestriccionTemporal {
 
@@ -14,8 +13,8 @@ public class RestriccionCombinada implements IRestriccionTemporal {
 	}
 	
 	@Override
-	public boolean validar(Muestra muestra) {
-		return getRestricciones().stream().allMatch(restriccion -> restriccion.validar(muestra));
+	public boolean validar(LocalDateTime fechaMuestra) {
+		return getRestricciones().stream().allMatch(restriccion -> restriccion.validar(fechaMuestra));
 	}
 	
 	public void addRestriccion(IRestriccionTemporal restriccion) {
