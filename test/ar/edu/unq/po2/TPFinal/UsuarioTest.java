@@ -16,6 +16,7 @@ import org.mockito.Mock;
 import ar.edu.unq.po2.TPFinal.Common.Dificultad;
 import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
 import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
+import ar.edu.unq.po2.TPFinal.Estado.EstadoAceptado;
 import ar.edu.unq.po2.TPFinal.Estado.EstadoCompletado;
 import ar.edu.unq.po2.TPFinal.Estado.EstadoVencido;
 import ar.edu.unq.po2.TPFinal.Recomendador.RecomendadorPorPreferencia;
@@ -129,6 +130,11 @@ public class UsuarioTest {
 	}
 	
 	@Test
+	public void testTipoRecomendacion() {
+		assertEquals(usuario.getTipoRecomendacion(), recomendadorPorPreferencia);
+	}
+	
+	@Test
 	public void testFechaCompletadoTest() {
 
 		assertEquals(usuario.fechaCompletado(desafioUsuarioB), LocalDateTime.now());
@@ -142,6 +148,7 @@ public class UsuarioTest {
 	
 	@Test
 	public void testAceptarDesafio() {
+		usuario.aceptarDesafio(desafioUsuarioD);
 		assertEquals(desafioUsuarioD.getEstado().esDesafioCompletado(), false);
 	}
 	
@@ -151,6 +158,7 @@ public class UsuarioTest {
 		assertEquals(usuario.getDesafios().size(), 3);
 		
 	}
+	
 
 	
 
