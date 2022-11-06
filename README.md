@@ -37,7 +37,7 @@ para poder hacer busquedas combinadas por titulares o categorias. Los roles que 
 ```
 * Component:  BuscadorProyectos
 * Composite:  BusquedaAvanzada  
-* Leaf: BusquedaPorCategoria y BusquedaPorTitulo
+* Leaf: BusquedaPorCategoria, BusquedaPorTitulo, BuscadorAnd, BuscadorOr y BuscadorNot
 
 ```
 Segundo utilizamos el patron Composite para las restricciones temporales que van a tener nuestros Desafios.

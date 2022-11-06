@@ -18,37 +18,11 @@ public class DesafioUsuario {
 	private IEstadoDesafio estado;
 	private int votos;
 
-	public DesafioUsuario(Desafio desafio, double porcentajeCompletititud, LocalDateTime momentoSuperacion) {
+	public DesafioUsuario(Desafio desafio) {
 		this.desafio = desafio;
 		this.muestras = new ArrayList<Muestra>();
-		this.porcentajeCompletititud = porcentajeCompletititud;
-		this.fechaCompletado = momentoSuperacion;
 		this.estado = new EstadoSinIniciar(); //Seteamos siempre el estado inicial
 		this.votos = 0;
-	}
-
-	public Desafio getDesafio() {
-		return desafio;
-	}
-	
-	public List<Muestra> getMuestras(){
-		return this.muestras;
-	}
-
-	public double getPorcentajeCompletititud() {
-		return this.porcentajeCompletititud;
-	}
-
-	public LocalDateTime getFechaCompletado() {
-		return this.fechaCompletado;
-	}
-
-	public IEstadoDesafio getEstado() {
-		return this.estado;
-	}
-	
-	public int getVotos() {
-		return this.votos;
 	}
 
 	public void aceptarDesafio() {
@@ -74,6 +48,7 @@ public class DesafioUsuario {
 			if(this.esDesafioCompletado()) {
 				//cambio de estado el desafio porque fue completado
 				this.getEstado().desafioCompletado(this);
+				
 			}
 		
 		}
@@ -95,7 +70,7 @@ public class DesafioUsuario {
 		
 	}
 
-	private boolean esDesafioVencido() {
+	public boolean esDesafioVencido() {
 		//valido que el desafio no este vencido, para poder agregar una muestra nueva. 
 		return this.getEstado().equals(new EstadoVencido());
 	}
@@ -103,5 +78,37 @@ public class DesafioUsuario {
 	private boolean esDesafioCompletado(){
 		//Valida si ya esta cumplida la cantidad de muestras que pide el Desafio
 		return this.getMuestras().size() == this.getDesafio().getCantidadMuestrasARecolectar();
+	}
+	
+	public Desafio getDesafio() {
+		return desafio;
+	}
+	
+	public List<Muestra> getMuestras(){
+		return this.muestras;
+	}
+
+	public double getPorcentajeCompletititud() {
+		return this.porcentajeCompletititud;
+	}
+
+	public LocalDateTime getFechaCompletado() {
+		return this.fechaCompletado;
+	}
+
+	public void setPorcentajeCompletititud(double porcentajeCompletititud) {
+		this.porcentajeCompletititud = porcentajeCompletititud;
+	}
+	
+	public void setFechaCompletado(LocalDateTime fechaCompletado) {
+		this.fechaCompletado = fechaCompletado;
+	}
+
+	public IEstadoDesafio getEstado() {
+		return this.estado;
+	}
+	
+	public int getVotos() {
+		return this.votos;
 	}
 }

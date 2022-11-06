@@ -39,7 +39,7 @@ public class DesafioUsuarioTest {
 	
 	@BeforeEach
 	public void setUp() {
-		desafioUsuario = new DesafioUsuario(desafio, 5, LocalDateTime.now());
+		desafioUsuario = new DesafioUsuario(desafio);
 		
 		//Prueba para agregar una Muestra
 		coordenada = new Coordenada(2, 3);
@@ -47,7 +47,7 @@ public class DesafioUsuarioTest {
 		restriccionFecha = new RestriccionFecha(LocalDateTime.now(), LocalDateTime.now());
 		
 		desafio2 = new Desafio(area, restriccionFecha, 1, Dificultad.FACIL, 2);
-		desafioUsuario2 = new DesafioUsuario(desafio2, 3, LocalDateTime.now());
+		desafioUsuario2 = new DesafioUsuario(desafio2);
 		muestra = new Muestra(coordenada, usuario, LocalDateTime.now());
 		
 		

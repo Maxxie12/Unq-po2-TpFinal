@@ -8,6 +8,7 @@ import ar.edu.unq.po2.TPFinal.Usuario;
 import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
 
 public abstract class Recomendador {
+	
 	public abstract List<Desafio> recomendarDesafios(Usuario usuario, List<Desafio> desafios);
 
 	public List<Desafio> desafiosOrdenadosPorCoincidencia(Usuario usuario, List<Desafio> desafios) {
