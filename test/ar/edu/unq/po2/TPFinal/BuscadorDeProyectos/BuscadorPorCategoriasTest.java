@@ -16,7 +16,7 @@ import ar.edu.unq.po2.TPFinal.Common.Categoria;
 
 class BuscadorPorCategoriasTest {
     
-	private List<Categoria> categorias;
+	private List<Categoria> categorias = new ArrayList<Categoria>();
 
 	@Mock
 	BuscadorPorCategorias buscadorPorCategorias;
@@ -26,23 +26,23 @@ class BuscadorPorCategoriasTest {
     Categoria categoria4 = mock(Categoria.class);
     
 	@BeforeEach
-	void setUp(){	
-	when(categoria1.getDescripcion()).thenReturn("Geografía");
-    when(categoria2.getDescripcion()).thenReturn("Geología");
-    when(categoria3.getDescripcion()).thenReturn("Química");
-    when(categoria4.getDescripcion()).thenReturn("Química");
-    categorias.add(categoria1);
-    categorias.add(categoria2);
-    categorias.add(categoria3);
-    categorias.add(categoria4);
-	
+	void setUp() {
+		when(categoria1.getDescripcion()).thenReturn("Geografía");
+	    when(categoria2.getDescripcion()).thenReturn("Geología");
+	    when(categoria3.getDescripcion()).thenReturn("Química");
+	    when(categoria4.getDescripcion()).thenReturn("Química");
+	    categorias.add(categoria1);
+	    categorias.add(categoria2);
+	    categorias.add(categoria3);
+	    categorias.add(categoria4);
+	    
 	}
     
-	@Test
-	assertTrue(buscadorPorCategoria.categorias.contains(categoria2));
-
     
-    
+    @Test
+    void testBuscadorPorCategorias() {
+ assertTrue(buscadorPorCategorias.getCategorias().contains(categoria2));
+    }
     
 
 }
