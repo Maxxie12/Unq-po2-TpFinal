@@ -8,7 +8,7 @@ public class BuscadorNot extends BuscadorProyectos {
 	
 	private BuscadorProyectos buscadorANegar;
 	
-	public void setBuscadorANegrar(BuscadorProyectos buscadorDeProyectos) {
+	public void setBuscadorANegar(BuscadorProyectos buscadorDeProyectos) {
 		this.buscadorANegar = buscadorDeProyectos;
 	}
 	
