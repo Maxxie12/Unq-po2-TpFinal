@@ -71,7 +71,7 @@ class BuscadorOrTest {
 	}
 	
 	@Test
-	void buscadorAndNoContiene() {
+	void buscadorOrNoContiene() {
 		buscadorOr.setPrimerBuscador(buscadorPorTitulo);
 		buscadorOr.setSegundoBuscador(buscadorIncluyendoCategorias);
 		this.categorias.add(categoria3);
@@ -83,7 +83,7 @@ class BuscadorOrTest {
 	}
 	
 	@Test
-	void buscadorAnd() {
+	void buscadorOr() {
 		buscadorOr.setPrimerBuscador(buscadorPorTitulo);
 		buscadorOr.setSegundoBuscador(buscadorIncluyendoCategorias);
 		this.categorias.add(categoria3);
