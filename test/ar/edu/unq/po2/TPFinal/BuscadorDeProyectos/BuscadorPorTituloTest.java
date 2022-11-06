@@ -16,13 +16,14 @@ class BuscadorPorTituloTest {
 	
 	private String fraseABuscar = "";
 	List<Proyecto> proyectosAFiltrar = new ArrayList<Proyecto>();
+	BuscadorPorTitulo buscadorPorTitulo;   
 	
 	@Mock
 	Proyecto proyecto1 = mock(Proyecto.class);
     Proyecto proyecto2 = mock(Proyecto.class);
     Proyecto proyecto3 = mock(Proyecto.class);
     Proyecto proyecto4 = mock(Proyecto.class);
-	BuscadorPorTitulo buscadorPorTitulo;   
+   
     
 	@BeforeEach
     void setUp() { 
@@ -35,22 +36,24 @@ class BuscadorPorTituloTest {
 		proyectosAFiltrar.add(proyecto2);     
 		proyectosAFiltrar.add(proyecto3);
 		proyectosAFiltrar.add(proyecto4);
+		
+		buscadorPorTitulo = new BuscadorPorTitulo();
     }
     
     
    
     @Test
     void testBuscadorPorTituloEncontrado(){
-    	this.fraseABuscar = "procesos geológicos";
+    	buscadorPorTitulo.fraseABuscar("procesos geológicos");
     	
-    	assertTrue(proyectosAFiltrar.stream().filter(proyecto->proyecto.getNombre().contains(this.fraseABuscar)).toList().contains(proyecto2));
+    	assertTrue(buscadorPorTitulo.filtrar(proyectosAFiltrar).contains(proyecto2));
     }
 
     @Test
     void testBuscadorPorTituloNoEncontrado(){
-    	this.fraseABuscar = "titulo  inexistente";
+    	buscadorPorTitulo.fraseABuscar("Titulo inexistente");
     	
-    	assertFalse(proyectosAFiltrar.stream().filter(proyecto->proyecto.getNombre().contains(this.fraseABuscar)).toList().contains(proyecto2));
+    	assertFalse(buscadorPorTitulo.filtrar(proyectosAFiltrar).size()>0);
     }
 	 
 	 
