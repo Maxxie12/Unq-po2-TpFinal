@@ -25,7 +25,7 @@ public abstract class Recomendador {
 		return desafiosUsuario;
 	}
 
-	private Integer coincidenciaDesafio(Preferencia preferencia, Desafio desafio) {
+	public Integer coincidenciaDesafio(Preferencia preferencia, Desafio desafio) {
 
 		int diferenciaCantMuestras = diferenciaEntre(preferencia.getCantidadMuestras(),
 				desafio.getCantidadMuestrasARecolectar());

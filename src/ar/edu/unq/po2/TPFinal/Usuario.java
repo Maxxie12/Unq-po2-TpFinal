@@ -4,14 +4,10 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.objenesis.instantiator.basic.NewInstanceInstantiator;
-
 import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
 import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
-import ar.edu.unq.po2.TPFinal.Estado.EstadoVencido;
 import ar.edu.unq.po2.TPFinal.Recomendador.Recomendador;
 import ar.edu.unq.po2.TPFinal.Recomendador.RecomendadorPorPreferencia;
-import net.bytebuddy.agent.VirtualMachine.ForHotSpot.Connection.Response;
 
 public class Usuario {
 
@@ -26,13 +22,13 @@ public class Usuario {
 		this.preferencia = preferencia;
 		this.desafios = new ArrayList<DesafioUsuario>();
 		this.tipoRecomendacion = new RecomendadorPorPreferencia();
-		this.sistema= sistema;
+		this.sistema = sistema;
 	}
-	
+
 	public String getNombre() {
 		return this.nombre;
 	}
-		
+
 	public Preferencia getPreferencia() {
 		return this.preferencia;
 	}
@@ -40,11 +36,14 @@ public class Usuario {
 	public List<DesafioUsuario> getDesafios() {
 		return this.desafios;
 	}
-	
+
+	public void setDesafio(Desafio desafio) {
+		this.getDesafios().add(new DesafioUsuario(desafio));
+	}
+
 	public Recomendador getTipoRecomendacion() {
 		return this.tipoRecomendacion;
 	}
-	
 
 	public Sistema getSistema() {
 		return sistema;
@@ -70,47 +69,45 @@ public class Usuario {
 		return desafios.stream().mapToDouble(desafio -> Double.valueOf(desafio.getPorcentajeCompletititud())).average()
 				.orElse(0.0);
 	}
-	
+
 	public void buscarDesafios() {
 		List<Desafio> desafios = this.tipoRecomendacion.recomendarDesafios(this, this.sistema.getDesafios());
-		
-		if(!desafios.isEmpty()) {
+
+		if (!desafios.isEmpty()) {
 			this.agregarDesafios(desafios);
 		}
-		
+
 	}
-	
+
 	public void setTipoRecomendacion(Recomendador recomendador) {
 		this.tipoRecomendacion = recomendador;
 		this.buscarDesafios();
 	}
-	
+
 	public void aceptarDesafio(DesafioUsuario desafioUsuario) {
 		desafioUsuario.aceptarDesafio();
 	}
-	
+
 	public void agregarDesafios(List<Desafio> desafios) {
-		
-		for(Desafio desafio: desafios) {
-			this.getDesafios().add(new DesafioUsuario(desafio));
-			
+
+		for (Desafio desafio : desafios) {
+			this.setDesafio(desafio);
+			// this.getDesafios().add(new DesafioUsuario(desafio));
+
 		}
-		
+
 		this.limpiarDesafiosVencidos();
-	
-		
 	}
 
 	private void limpiarDesafiosVencidos() {
 		int index = 0;
-		for(DesafioUsuario desafio: this.getDesafios()) {
-			if(desafio.esDesafioVencido()) {
+		for (DesafioUsuario desafio : this.getDesafios()) {
+			if (desafio.esDesafioVencido()) {
 				this.getDesafios().remove(index);
 				index = index + 1;
 			}
 		}
-		
+
 	}
-	
 
 }
