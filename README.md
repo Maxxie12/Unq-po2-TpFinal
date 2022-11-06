@@ -1,7 +1,7 @@
 # Unq-po2-TpFinal
 
 
-## Patrones de dieseño
+## Patrones de diseño
 
 ### State 📌
 
@@ -32,7 +32,7 @@ RecomendadorPorFavorito. Los roles que representan son:
 ### Composite 📌
 
 Primero utilizamos el patron Composite para la parte de busqueda de proyectos. Lo usamos en esta parte
-para poder hacer busquedas convinadas por titulares o categorias. Los roles que representan son:
+para poder hacer busquedas combinadas por titulares o categorias. Los roles que representan son:
 
 ```
 * Component:  BuscadorProyectos
