@@ -97,6 +97,7 @@ public class Usuario {
 		}
 		
 		this.limpiarDesafiosVencidos();
+	
 		
 	}
 

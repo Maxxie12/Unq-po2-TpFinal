@@ -2,6 +2,7 @@ package ar.edu.unq.po2.TPFinal;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.time.LocalDateTime;
@@ -27,7 +28,6 @@ public class UsuarioTest {
 	@Mock
 	Preferencia preferencia;
 	
-	@Mock
 	Sistema sistema;
 	
 	@Mock
@@ -36,7 +36,6 @@ public class UsuarioTest {
 	@Mock
 	RestriccionFecha restriccionFecha;
 	
-	@Mock
 	RecomendadorPorPreferencia recomendadorPorPreferencia;
 	
 	DesafioUsuario desafioUsuarioA;
@@ -53,14 +52,17 @@ public class UsuarioTest {
 	public void setUp() {
 		
 	
-		
+	
+		sistema = new Sistema();
 		usuario = new Usuario("Caso01", preferencia, sistema);
 		
-		
+	
 		
 		desafioA = new Desafio(area, restriccionFecha, 2, Dificultad.FACIL, 2);
 		desafioB = new Desafio(area, restriccionFecha, 3, Dificultad.INTERMEDIO, 3);
 		desafioC = new Desafio(area, restriccionFecha, 4, Dificultad.DIFICIL, 4);
+		
+		recomendadorPorPreferencia = new RecomendadorPorPreferencia();
 		
 		
 		desafioUsuarioA = new DesafioUsuario(desafioA);
@@ -72,8 +74,10 @@ public class UsuarioTest {
 		desafioUsuarioB.setEstadoDesafio(new EstadoVencido());
 		desafioUsuarioC.setEstadoDesafio(new EstadoCompletado());
 		
+		
 		desafioUsuarioA.setPorcentajeCompletititud(2);
 		desafioUsuarioB.setFechaCompletado(LocalDateTime.now());
+		
 		
 		
 		List<Desafio> desafios = new ArrayList<>();
@@ -82,6 +86,9 @@ public class UsuarioTest {
 		desafios.add(desafioC);
 		
 		usuario.agregarDesafio(desafios);
+		usuario.setTipoRecomendacion(recomendadorPorPreferencia);
+		
+		sistema.setDesafios(desafios);
 		
 	
 		
@@ -101,7 +108,7 @@ public class UsuarioTest {
 
 	@Test
 	public void testConstructorSistema() {
-		assertEquals(usuario.getSistema(), preferencia);
+		assertEquals(usuario.getSistema(), sistema);
 	}
 	
 	@Test
@@ -135,8 +142,14 @@ public class UsuarioTest {
 	
 	@Test
 	public void testAceptarDesafio() {
-		usuario.aceptarDesafio(desafioUsuarioD);
 		assertEquals(desafioUsuarioD.getEstado().esDesafioCompletado(), false);
+	}
+	
+	@Test
+	public void testBuscarDesafio() {
+		
+		assertEquals(usuario.getDesafios().size(), 3);
+		
 	}
 
 	
