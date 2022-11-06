@@ -2,13 +2,34 @@ package ar.edu.unq.po2.TPFinal.BuscadorDeProyectos;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+
+import ar.edu.unq.po2.TPFinal.Proyecto;
 
 class BuscadorNotTest {
 
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
+	private BuscadorProyectos buscadorANegar;
+	
 
+	@Mock
+	Proyecto proyecto1;
+	@Mock
+    Proyecto proyecto2;
+	@Mock
+    Proyecto proyecto3;
+	@Mock
+    Proyecto proyecto4;
+	@Mock
+	BuscadorNot buscadorNot;
+   
+	
+	@BeforeEach
+	void setUp() {
+		List<Proyecto> proyectosAFiltrar = new ArrayList<Proyecto>();
+	}
 }
