@@ -14,12 +14,12 @@ public class RecomendadorPorFavorito extends Recomendador {
 		return obtiene20DesafiosMayorCoincidencia(usuario,desafios).stream().limit(5).toList();
 	}
 	
-	public List<Desafio> obtiene20DesafiosMayorCoincidencia(Usuario usuario, List<Desafio> desafios) {
-		return this.desafiosOrdenadosPorCoincidencia(usuario, desafios).stream()
+	private List<Desafio> obtiene20DesafiosMayorCoincidencia(Usuario usuario, List<Desafio> desafios) {
+		return this.desafiosOrdenadosPorSimilitud(usuario, desafios).stream()
 				.filter(desafio -> !this.desafioDeDesafioUsuario(usuario).contains(desafio)).limit(20).toList();
 	}
 	
-	public List<Desafio> desafiosOrdenadosPorSimilitud(Usuario usuario, List<Desafio> desafios) {
+	private List<Desafio> desafiosOrdenadosPorSimilitud(Usuario usuario, List<Desafio> desafios) {
 		List<Desafio> sortDesafios = desafios.stream()
 				.sorted((desafio1, desafio2) -> similitudDesafios(desafio1, desafioMasVotado(usuario))
 				.compareTo(similitudDesafios(desafio2, desafioMasVotado(usuario))))
@@ -27,12 +27,12 @@ public class RecomendadorPorFavorito extends Recomendador {
 		return sortDesafios;
 	}
 	
-	public Desafio desafioMasVotado(Usuario usuario) {
+	private Desafio desafioMasVotado(Usuario usuario) {
 		DesafioUsuario desafioUsuario = usuario.getDesafios().stream().max(Comparator.comparingInt(DesafioUsuario :: getVotos)).get(); 
 		return desafioUsuario.getDesafio(); 
 	}
 
-	public Double similitudDesafios(Desafio desafio, Desafio desafioMasVotado) {
+	private Double similitudDesafios(Desafio desafio, Desafio desafioMasVotado) {
 
 		int diferenciaCantMuestras = diferenciaEntre(desafio.getCantidadMuestrasARecolectar(),	desafioMasVotado.getCantidadMuestrasARecolectar());
 		int diferenciaDificultad = diferenciaEntre(desafio.getDificultad().getValorDificultad(), desafioMasVotado.getDificultad().getValorDificultad());

@@ -21,6 +21,7 @@ public class DesafioUsuario {
 	public DesafioUsuario(Desafio desafio) {
 		this.desafio = desafio;
 		this.muestras = new ArrayList<Muestra>();
+		this.porcentajeCompletititud = 0;
 		this.estado = new EstadoSinIniciar(); //Seteamos siempre el estado inicial
 		this.votos = 0;
 	}

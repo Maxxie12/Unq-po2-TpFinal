@@ -37,8 +37,8 @@ public class Usuario {
 		return this.desafios;
 	}
 
-	public void setDesafio(Desafio desafio) {
-		this.getDesafios().add(new DesafioUsuario(desafio));
+	public void setDesafio(DesafioUsuario desafioUsuario) {
+		this.getDesafios().add(desafioUsuario);
 	}
 
 	public Recomendador getTipoRecomendacion() {
@@ -69,6 +69,10 @@ public class Usuario {
 		return desafios.stream().mapToDouble(desafio -> Double.valueOf(desafio.getPorcentajeCompletititud())).average()
 				.orElse(0.0);
 	}
+	
+	public void votarDesafioUsuario(DesafioUsuario desafioUsuario) {
+		desafioUsuario.votarDesafio(1);
+	}
 
 	public void buscarDesafios() {
 		List<Desafio> desafios = this.tipoRecomendacion.recomendarDesafios(this, this.sistema.getDesafios());
@@ -91,7 +95,7 @@ public class Usuario {
 	public void agregarDesafios(List<Desafio> desafios) {
 
 		for (Desafio desafio : desafios) {
-			this.setDesafio(desafio);
+			this.setDesafio(new DesafioUsuario(desafio));
 			// this.getDesafios().add(new DesafioUsuario(desafio));
 
 		}
