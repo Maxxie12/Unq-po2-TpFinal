@@ -1,5 +1,6 @@
 package ar.edu.unq.po2.TPFinal.BuscadorDeProyectos;
 
+import java.util.ArrayList;
 import java.util.List;
 import ar.edu.unq.po2.TPFinal.Proyecto;
 
@@ -15,7 +16,10 @@ public class BuscadorPorTitulo extends BuscadorProyectos {
    
 	@Override
 	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar){
-		return (proyectosAFiltrar.stream().filter(proyecto->proyecto.getNombre().contains(this.fraseABuscar)).toList());
+		List<Proyecto> resultadosDeLaBusqueda = new ArrayList<Proyecto>();
+		resultadosDeLaBusqueda = proyectosAFiltrar.stream().filter(proyecto->proyecto.getNombre().contains(this.fraseABuscar)).toList();
+		
+		return (resultadosDeLaBusqueda);
 	}
 	
 
