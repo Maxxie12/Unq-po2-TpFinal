@@ -70,7 +70,7 @@ public class DesafioUsuario {
 		
 	}
 
-	private boolean esDesafioVencido() {
+	public boolean esDesafioVencido() {
 		//valido que el desafio no este vencido, para poder agregar una muestra nueva. 
 		return this.getEstado().equals(new EstadoVencido());
 	}

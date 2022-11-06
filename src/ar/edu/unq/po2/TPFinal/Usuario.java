@@ -104,7 +104,7 @@ public class Usuario {
 	private void limpiarDesafiosVencidos() {
 		int index = 0;
 		for(DesafioUsuario desafio: this.getDesafios()) {
-			if(desafio.getEstado().equals(new EstadoVencido())) {
+			if(desafio.esDesafioVencido()) {
 				this.getDesafios().remove(index);
 				index = index + 1;
 			}
