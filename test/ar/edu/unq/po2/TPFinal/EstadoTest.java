@@ -2,7 +2,6 @@ package ar.edu.unq.po2.TPFinal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.time.LocalDateTime;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,10 +9,9 @@ import org.mockito.Mock;
 
 import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
 import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
-import ar.edu.unq.po2.TPFinal.Estado.EstadoAceptado;
 import ar.edu.unq.po2.TPFinal.Estado.EstadoCompletado;
 
-public class EstadoCompletadoTest {
+public class EstadoTest {
 	
 	EstadoCompletado estadoCompletado;
 	DesafioUsuario desafioUsuario;

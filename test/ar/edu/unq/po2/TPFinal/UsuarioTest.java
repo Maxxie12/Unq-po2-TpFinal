@@ -2,8 +2,6 @@ package ar.edu.unq.po2.TPFinal;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -16,7 +14,6 @@ import org.mockito.Mock;
 import ar.edu.unq.po2.TPFinal.Common.Dificultad;
 import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
 import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
-import ar.edu.unq.po2.TPFinal.Estado.EstadoAceptado;
 import ar.edu.unq.po2.TPFinal.Estado.EstadoCompletado;
 import ar.edu.unq.po2.TPFinal.Estado.EstadoVencido;
 import ar.edu.unq.po2.TPFinal.Recomendador.RecomendadorPorPreferencia;

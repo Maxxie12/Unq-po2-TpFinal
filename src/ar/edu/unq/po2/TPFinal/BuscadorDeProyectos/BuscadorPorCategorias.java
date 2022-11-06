@@ -1,6 +1,7 @@
 package ar.edu.unq.po2.TPFinal.BuscadorDeProyectos;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.unq.po2.TPFinal.Proyecto;
@@ -9,7 +10,7 @@ import ar.edu.unq.po2.TPFinal.Common.Categoria;
 
 public class BuscadorPorCategorias extends BuscadorProyectos {
 	
-	private List<Categoria> categorias;
+	private List<Categoria> categorias = new ArrayList<Categoria>();
 	
 
 	public List<Categoria> getCategorias() {

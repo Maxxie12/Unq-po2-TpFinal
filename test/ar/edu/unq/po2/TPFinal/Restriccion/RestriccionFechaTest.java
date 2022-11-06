@@ -14,7 +14,7 @@ import ar.edu.unq.po2.TPFinal.Muestra;
 
 class RestriccionFechaTest {
 
-	private IRestriccionTemporal restriccion;
+	private RestriccionFecha restriccion;
 	private LocalDateTime fechaActual;
 	private LocalDateTime fechaDesde;
 	private LocalDateTime fechaHasta;
@@ -59,6 +59,15 @@ class RestriccionFechaTest {
 	void testMuestraFechaSuperior() {
 		System.out.println(muestraFechaSuperior.getFechaYHora());
 		assertEquals(false, restriccion.validar(muestraFechaSuperior.getFechaYHora()));
+	}
+	
+	@Test
+	void testFechaDesde() {
+		assertEquals(this.fechaDesde, restriccion.getFechaDesde());
+	}
+	@Test
+	void testFechHasta() {
+		assertEquals(this.fechaHasta, restriccion.getFechaHasta());
 	}
 	
 

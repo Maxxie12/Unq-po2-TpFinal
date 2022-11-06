@@ -9,7 +9,7 @@ import ar.edu.unq.po2.TPFinal.Proyecto;
 
 public class BusquedaAvanzada extends BuscadorProyectos {
 	
-	private List<BuscadorProyectos> buscadoresAAplicar;
+	private List<BuscadorProyectos> buscadoresAAplicar = new ArrayList<BuscadorProyectos>();
 	
 
 	@Override

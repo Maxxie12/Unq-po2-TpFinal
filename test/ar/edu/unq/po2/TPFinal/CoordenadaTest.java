@@ -29,5 +29,15 @@ class CoordenadaTest {
 		assertEquals(12, coordenadaNueva.getX());
 		assertEquals(46, coordenadaNueva.getY());
 	}
+	
+	@Test
+	public void testCambioPosicionCoordenada() {
+		
+		coordenada.setX(2);
+		coordenada.setY(5);
+		
+		assertEquals(2, coordenada.getX());
+		assertEquals(5, coordenada.getY());
+	}
 
 }

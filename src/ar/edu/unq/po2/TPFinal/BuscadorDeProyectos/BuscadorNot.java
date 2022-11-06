@@ -7,7 +7,7 @@ import ar.edu.unq.po2.TPFinal.Proyecto;
 public class BuscadorNot extends BuscadorProyectos {
 	
 	private BuscadorProyectos buscadorANegar;
-	
+
 	public void setBuscadorANegar(BuscadorProyectos buscadorDeProyectos) {
 		this.buscadorANegar = buscadorDeProyectos;
 	}
