@@ -1,6 +1,7 @@
 package ar.edu.unq.po2.TPFinal.BuscadorDeProyectos;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,14 +15,10 @@ import ar.edu.unq.po2.TPFinal.Proyecto;
 class BuscadorExcluyendoCategoriasTest {
 
 	@Mock
-	Proyecto proyecto1;
-	@Mock
-    Proyecto proyecto2;
-	@Mock
-    Proyecto proyecto3;
-	@Mock
-    Proyecto proyecto4;
-	@Mock
+	Proyecto proyecto1 = mock(Proyecto.class);
+    Proyecto proyecto2 = mock(Proyecto.class);
+    Proyecto proyecto3 = mock(Proyecto.class);
+    Proyecto proyecto4 = mock(Proyecto.class);
 	BuscadorExcluyendoCategorias buscadorExcluyendoCategorias;
 	
 	
