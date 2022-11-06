@@ -75,7 +75,7 @@ public class Usuario {
 		List<Desafio> desafios = this.tipoRecomendacion.recomendarDesafios(this, this.sistema.getDesafios());
 		
 		if(!desafios.isEmpty()) {
-			this.agregarDesafio(desafios);
+			this.agregarDesafios(desafios);
 		}
 		
 	}
@@ -89,7 +89,7 @@ public class Usuario {
 		desafioUsuario.aceptarDesafio();
 	}
 	
-	public void agregarDesafio(List<Desafio> desafios) {
+	public void agregarDesafios(List<Desafio> desafios) {
 		
 		for(Desafio desafio: desafios) {
 			this.getDesafios().add(new DesafioUsuario(desafio));

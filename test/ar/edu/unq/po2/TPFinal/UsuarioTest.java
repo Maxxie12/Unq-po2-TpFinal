@@ -86,7 +86,7 @@ public class UsuarioTest {
 		desafios.add(desafioB);
 		desafios.add(desafioC);
 		
-		usuario.agregarDesafio(desafios);
+		usuario.agregarDesafios(desafios);
 		usuario.setTipoRecomendacion(recomendadorPorPreferencia);
 		
 		sistema.setDesafios(desafios);
