@@ -19,7 +19,6 @@ public class EstadoVencido implements IEstadoDesafio{
 	@Override
 	public void desafioVencido(DesafioUsuario desafioUsuario) {
 		//Ver aca que lanzaria cuando esta vencido.
-		System.out.println("El desafio esta vencido");
 		
 	}
 

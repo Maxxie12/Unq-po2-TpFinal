@@ -1,5 +1,6 @@
 package ar.edu.unq.po2.TPFinal;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -10,10 +11,12 @@ import org.mockito.Mock;
 import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
 import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
 import ar.edu.unq.po2.TPFinal.Estado.EstadoCompletado;
+import ar.edu.unq.po2.TPFinal.Estado.EstadoVencido;
 
 public class EstadoTest {
 	
 	EstadoCompletado estadoCompletado;
+	EstadoVencido estadoVencido;
 	DesafioUsuario desafioUsuario;
 	
 	@Mock
@@ -22,6 +25,7 @@ public class EstadoTest {
 	@BeforeEach
 	public void setUp() {
 		estadoCompletado = new EstadoCompletado();
+		estadoVencido = new EstadoVencido();
 		desafioUsuario = new DesafioUsuario(desafio);
 	}
 	
@@ -31,4 +35,8 @@ public class EstadoTest {
 		assertEquals(estadoCompletado.esDesafioCompletado(), new EstadoCompletado().esDesafioCompletado());
 	}
 
+	@Test
+	public void testDesafioVencido() {
+		assertFalse(estadoVencido.esDesafioCompletado());
+	}
 }
