@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.TPFinal;
+package ar.edu.unq.po2.TPFinal.Common;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
+import ar.edu.unq.po2.TPFinal.Area;
 import ar.edu.unq.po2.TPFinal.Common.Coordenada;
 
 public class AreaTest {
