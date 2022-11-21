@@ -37,7 +37,7 @@ public class Usuario {
 		return this.desafios;
 	}
 
-	public void setDesafio(DesafioUsuario desafioUsuario) {
+	public void agregarDesafioNuevo(DesafioUsuario desafioUsuario) {
 		this.getDesafios().add(desafioUsuario);
 	}
 
@@ -95,8 +95,7 @@ public class Usuario {
 	public void agregarDesafios(List<Desafio> desafios) {
 
 		for (Desafio desafio : desafios) {
-			this.setDesafio(new DesafioUsuario(desafio));
-			// this.getDesafios().add(new DesafioUsuario(desafio));
+			this.agregarDesafioNuevo(new DesafioUsuario(desafio));
 
 		}
 
@@ -105,8 +104,8 @@ public class Usuario {
 
 	private void limpiarDesafiosVencidos() {
 		int index = 0;
-		for (DesafioUsuario desafio : this.getDesafios()) {
-			if (desafio.esDesafioVencido()) {
+		while (index <= this.desafios.size()) {
+			if (this.desafios.get(index).esDesafioVencido()) {
 				this.getDesafios().remove(index);
 				index = index + 1;
 			}

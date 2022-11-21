@@ -84,8 +84,8 @@ class RecomendadorPorFavoritoTest {
 		desafioUsuarioMasVotado.votarDesafio(5);
 
 		usuario1 = new Usuario("Pedro", preferenciaUsuario1, sistema);
-		usuario1.setDesafio(desafioUsuarioMasVotado);
-		usuario1.setDesafio(desafioUsuarioMenosVotado);	
+		usuario1.agregarDesafioNuevo(desafioUsuarioMasVotado);
+		usuario1.agregarDesafioNuevo(desafioUsuarioMenosVotado);	
 	}
 	
 	
