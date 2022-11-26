@@ -18,11 +18,11 @@ class BusquedaAvanzadaTest {
 
 	List<Proyecto> proyectosAFiltrar = new ArrayList<Proyecto>();
 	List<Categoria> categorias = new ArrayList<Categoria>();
-	List<BuscadorProyectos> buscadoresAAplicar = new ArrayList<BuscadorProyectos>();
+	List<IBuscadorProyectos> buscadoresAAplicar = new ArrayList<IBuscadorProyectos>();
 	BuscadorNot buscadorNot;
 	BuscadorPorTitulo buscadorPorTitulo;
 	BuscadorIncluyendoCategorias buscadorIncluyendoCategorias;
-	BusquedaAvanzada busquedaAvanzada;
+	BuscadorCompuesto busquedaAvanzada;
 
 	@Mock
 	Proyecto proyecto1 = mock(Proyecto.class);
@@ -67,7 +67,7 @@ class BusquedaAvanzadaTest {
 		buscadorPorTitulo = new BuscadorPorTitulo();
 		buscadorNot = new BuscadorNot();
 
-		busquedaAvanzada = new BusquedaAvanzada();
+		busquedaAvanzada = new BuscadorCompuesto();
 		buscadorPorTitulo.fraseABuscar("región pampeana");
 		busquedaAvanzada.agregarBuscador(this.buscadorPorTitulo);
 		busquedaAvanzada.agregarBuscador(this.buscadorIncluyendoCategorias);

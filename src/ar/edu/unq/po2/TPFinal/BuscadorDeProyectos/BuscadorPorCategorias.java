@@ -8,17 +8,11 @@ import ar.edu.unq.po2.TPFinal.Proyecto;
 import ar.edu.unq.po2.TPFinal.Common.Categoria;
 
 
-public class BuscadorPorCategorias implements BuscadorProyectos {
+public class BuscadorPorCategorias implements IBuscadorProyectos {
 	
 	private List<Categoria> categorias = new ArrayList<Categoria>();
 	
-
-	public List<Categoria> getCategorias() {
-		return categorias;
-	}
-
-
-	public void setCategorias(List<Categoria> categorias) {
+	public BuscadorPorCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
 	}
 
@@ -29,22 +23,4 @@ public class BuscadorPorCategorias implements BuscadorProyectos {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
-	@Override
-	public void agregarBuscador(BuscadorProyectos buscadorProyectos) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void quitarBuscador(BuscadorProyectos buscadorProyectos) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-
 }

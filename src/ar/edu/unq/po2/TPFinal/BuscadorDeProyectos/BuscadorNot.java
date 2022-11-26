@@ -4,36 +4,19 @@ import java.util.List;
 
 import ar.edu.unq.po2.TPFinal.Proyecto;
 
-public class BuscadorNot implements BuscadorProyectos {
-	
-	private BuscadorProyectos buscadorANegar;
+public class BuscadorNot implements IBuscadorProyectos {
 
-	public void setBuscadorANegar(BuscadorProyectos buscadorDeProyectos) {
-		this.buscadorANegar = buscadorDeProyectos;
-	}
-	
-	 public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
-		 List<Proyecto> busquedaNegada = proyectosAFiltrar;
-		  
-		 busquedaNegada.removeAll(buscadorANegar.filtrar(proyectosAFiltrar));
-		 
-		 return busquedaNegada;
-	 }
+	private IBuscadorProyectos filtroBusqueda;
 
-	@Override
-	public void agregarBuscador(BuscadorProyectos buscadorProyectos) {
-		this.buscadorANegar = buscadorProyectos;
-		
+	public BuscadorNot(IBuscadorProyectos buscador) {
+		this.filtroBusqueda = buscador;
 	}
 
-	@Override
-	public void quitarBuscador(BuscadorProyectos buscadorProyectos) {
-		// TODO Auto-generated method stub
-		
+	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
+		List<Proyecto> busquedaNegada = proyectosAFiltrar;
+
+		busquedaNegada.removeAll(filtroBusqueda.filtrar(proyectosAFiltrar));
+
+		return busquedaNegada;
 	}
-
-
-	
-	
-
 }

@@ -144,6 +144,7 @@ public class UsuarioTest {
 		
 	}
 	
+	
 	@Test
 	public void testAceptarDesafio() {
 		usuario.aceptarDesafio(desafioUsuarioD);

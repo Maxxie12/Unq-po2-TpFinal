@@ -5,51 +5,21 @@ import java.util.List;
 
 import ar.edu.unq.po2.TPFinal.Proyecto;
 
-public class BuscadorOr implements BuscadorProyectos {
-  
-    private BuscadorProyectos primerBuscador;
-	private BuscadorProyectos segundoBuscador;
+public class BuscadorOr extends BuscadorLogico {
 
-	public void setPrimerBuscador(BuscadorProyectos primerBuscador) {
-		this.primerBuscador = primerBuscador;
+	public BuscadorOr(IBuscadorProyectos filtroBusqueda1, IBuscadorProyectos filtroBusqueda2) {
+		super(filtroBusqueda1, filtroBusqueda2);
 	}
 
-	public void setSegundoBuscador(BuscadorProyectos segundoBuscador) {
-		this.segundoBuscador = segundoBuscador;
+	@Override
+	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
+		List<Proyecto> proyectosResultantes = new ArrayList <Proyecto>();
+		
+	    proyectosResultantes.addAll(this.getFiltroBusqueda1().filtrar(proyectosAFiltrar));
+	    proyectosResultantes.addAll(this.getFiltroBusqueda2().filtrar(proyectosAFiltrar));
+		
+		return proyectosResultantes.stream().distinct().toList();
 	}
-
-	public BuscadorProyectos getPrimerBuscador() {
-		return this.primerBuscador;
-	}
-
-	public BuscadorProyectos getSegundoBuscador() {
-		return this.segundoBuscador;
-	}
- public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar){
-    List<Proyecto> proyectosResultantes = new ArrayList <Proyecto>();
-	
-    proyectosResultantes.addAll(this.getPrimerBuscador().filtrar(proyectosAFiltrar));
-    proyectosResultantes.addAll(this.getSegundoBuscador().filtrar(proyectosAFiltrar));
-	
-	return proyectosResultantes.stream().distinct().toList();
-	
- 
- }
-
-@Override
-public void agregarBuscador(BuscadorProyectos buscadorProyectos) {
-	// TODO Auto-generated method stub
-	
-  }
-
-@Override
-public void quitarBuscador(BuscadorProyectos buscadorProyectos) {
-	// TODO Auto-generated method stub
-	
-  }
-
-
-	
 }
  
 
