@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 import ar.edu.unq.po2.TPFinal.Proyecto;
 
-public class BusquedaAvanzada extends BuscadorProyectos {
+public class BusquedaAvanzada implements BuscadorProyectos {
 	
 	private List<BuscadorProyectos> buscadoresAAplicar = new ArrayList<BuscadorProyectos>();
 	

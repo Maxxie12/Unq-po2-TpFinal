@@ -8,7 +8,7 @@ import ar.edu.unq.po2.TPFinal.Proyecto;
 import ar.edu.unq.po2.TPFinal.Common.Categoria;
 
 
-public class BuscadorPorCategorias extends BuscadorProyectos {
+public class BuscadorPorCategorias implements BuscadorProyectos {
 	
 	private List<Categoria> categorias = new ArrayList<Categoria>();
 	

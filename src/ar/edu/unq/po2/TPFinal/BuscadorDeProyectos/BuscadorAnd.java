@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import ar.edu.unq.po2.TPFinal.Proyecto;
 
-public class BuscadorAnd extends BuscadorProyectos {
+public class BuscadorAnd implements BuscadorProyectos {
 	
 	private BuscadorProyectos primerBuscador;
 	private BuscadorProyectos segundoBuscador;

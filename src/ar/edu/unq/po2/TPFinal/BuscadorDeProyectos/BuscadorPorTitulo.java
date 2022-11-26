@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import ar.edu.unq.po2.TPFinal.Proyecto;
 
-public class BuscadorPorTitulo extends BuscadorProyectos {
+public class BuscadorPorTitulo implements BuscadorProyectos {
 	private String fraseABuscar = "";
 	
 

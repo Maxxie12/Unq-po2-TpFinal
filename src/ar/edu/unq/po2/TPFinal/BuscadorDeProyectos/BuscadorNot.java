@@ -4,7 +4,7 @@ import java.util.List;
 
 import ar.edu.unq.po2.TPFinal.Proyecto;
 
-public class BuscadorNot extends BuscadorProyectos {
+public class BuscadorNot implements BuscadorProyectos {
 	
 	private BuscadorProyectos buscadorANegar;
 
