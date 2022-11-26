@@ -9,10 +9,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
-import ar.edu.unq.po2.TPFinal.Area;
 import ar.edu.unq.po2.TPFinal.Preferencia;
 import ar.edu.unq.po2.TPFinal.Sistema;
 import ar.edu.unq.po2.TPFinal.Usuario;
+import ar.edu.unq.po2.TPFinal.Common.Circulo;
 import ar.edu.unq.po2.TPFinal.Common.Dificultad;
 import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
 import ar.edu.unq.po2.TPFinal.Restriccion.IRestriccionTemporal;
@@ -33,7 +33,7 @@ class RecomendadorPorPreferenciaTest {
 
 	@Mock
 	Sistema sistema;
-	Area area;
+	Circulo area;
 	IRestriccionTemporal restriccion;
 
 	@BeforeEach

@@ -4,9 +4,9 @@ package ar.edu.unq.po2.TPFinal.Desafio;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
-import ar.edu.unq.po2.TPFinal.Area;
 import ar.edu.unq.po2.TPFinal.Muestra;
 import ar.edu.unq.po2.TPFinal.Usuario;
+import ar.edu.unq.po2.TPFinal.Common.Circulo;
 import ar.edu.unq.po2.TPFinal.Common.Coordenada;
 import ar.edu.unq.po2.TPFinal.Common.Dificultad;
 import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
@@ -32,7 +32,7 @@ public class DesafioUsuarioTest {
 	//Prueba para agregar una Muestra
 	DesafioUsuario desafioUsuario2;
 	Desafio desafio2;
-	Area area;
+	Circulo area;
 	Coordenada coordenada;
 	RestriccionFecha restriccionFecha;
 	Muestra muestra;
@@ -46,7 +46,7 @@ public class DesafioUsuarioTest {
 		
 		//Prueba para agregar una Muestra
 		coordenada = new Coordenada(2, 3);
-		area = new Area(coordenada, 5);
+		area = new Circulo(coordenada, 5);
 		restriccionFecha = new RestriccionFecha(LocalDateTime.now(), LocalDateTime.now());
 		
 		desafio2 = new Desafio(area, restriccionFecha, 1, Dificultad.FACIL, 2);

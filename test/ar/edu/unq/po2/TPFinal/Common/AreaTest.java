@@ -6,19 +6,18 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
-import ar.edu.unq.po2.TPFinal.Area;
 import ar.edu.unq.po2.TPFinal.Common.Coordenada;
 
 public class AreaTest {
 	
-	Area area;
+	Circulo area;
 	
 	@Mock
 	Coordenada cordenada;
 	
 	@BeforeEach
 	public void setUp() {
-		area = new Area(cordenada, 7);
+		area = new Circulo(cordenada, 7);
 	}
 	
 	@Test

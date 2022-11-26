@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
-import ar.edu.unq.po2.TPFinal.Area;
+import ar.edu.unq.po2.TPFinal.Common.Circulo;
 import ar.edu.unq.po2.TPFinal.Common.Dificultad;
 import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
 import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
@@ -18,7 +18,7 @@ public class DesafioTest {
 	
 	
 	@Mock
-	Area area;
+	Circulo area;
 	
 	@Mock
 	RestriccionFecha restriccionFecha;

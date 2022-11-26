@@ -1,12 +1,10 @@
-package ar.edu.unq.po2.TPFinal;
+package ar.edu.unq.po2.TPFinal.Common;
 
-import ar.edu.unq.po2.TPFinal.Common.Coordenada;
-
-public class Area {
+public class Circulo {
 	private Coordenada coordenada;
 	private int radio;
 	
-	public Area(Coordenada coordenada, int radio) {
+	public Circulo(Coordenada coordenada, int radio) {
 		this.coordenada = coordenada;
 		this.radio = radio;
 	}
