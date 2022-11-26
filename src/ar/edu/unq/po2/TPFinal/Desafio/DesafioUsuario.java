@@ -31,8 +31,7 @@ public class DesafioUsuario {
 	}
 
 	public void votarDesafio(Integer voto) {
-		if(this.getEstado().esDesafioCompletado() && voto <= 5)
-			this.votos = votos + voto;
+		this.estado.votarDesafio(this, voto);
 	}
 
 	public void setEstadoDesafio(IEstadoDesafio estado) {
@@ -42,11 +41,11 @@ public class DesafioUsuario {
 
 	public void agregarMuestra(Muestra muestra) {
 		
-		if(!this.esDesafioVencido() && this.esAreaAceptada(muestra) && this.cumpleRestriccion(muestra)) {
+		if(!this.estado.esDesafioVencido() && this.esAreaAceptada(muestra) && this.cumpleRestriccion(muestra)) {
 			this.muestras.add(muestra);
 		
 		
-			if(this.esDesafioCompletado()) {
+			if(this.estado.esDesafioCompletado(this)) {
 				//cambio de estado el desafio porque fue completado
 				this.getEstado().desafioCompletado(this);
 				
@@ -71,15 +70,6 @@ public class DesafioUsuario {
 		
 	}
 
-	public boolean esDesafioVencido() {
-		//valido que el desafio no este vencido, para poder agregar una muestra nueva. 
-		return this.getEstado().equals(new EstadoVencido());
-	}
-	
-	private boolean esDesafioCompletado(){
-		//Valida si ya esta cumplida la cantidad de muestras que pide el Desafio
-		return this.getMuestras().size() == this.getDesafio().getCantidadMuestrasARecolectar();
-	}
 	
 	public Desafio getDesafio() {
 		return desafio;
@@ -104,6 +94,8 @@ public class DesafioUsuario {
 	public void setFechaCompletado(LocalDateTime fechaCompletado) {
 		this.fechaCompletado = fechaCompletado;
 	}
+	
+	
 
 	public IEstadoDesafio getEstado() {
 		return this.estado;
@@ -112,4 +104,10 @@ public class DesafioUsuario {
 	public int getVotos() {
 		return this.votos;
 	}
+
+	public void setVotos(int votos) {
+		this.votos = votos;
+	}
+	
+	
 }

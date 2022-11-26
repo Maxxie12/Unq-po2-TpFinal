@@ -99,6 +99,7 @@ public class UsuarioTest {
 		assertEquals(usuario.getNombre(), "Caso01");
 	}
 	
+	
 	@Test
 	public void testConstructorPreferencia() {
 		assertEquals(usuario.getPreferencia(), preferencia);
@@ -146,7 +147,7 @@ public class UsuarioTest {
 	@Test
 	public void testAceptarDesafio() {
 		usuario.aceptarDesafio(desafioUsuarioD);
-		assertEquals(desafioUsuarioD.getEstado().esDesafioCompletado(), false);
+		assertEquals(desafioUsuarioD.getEstado().esDesafioCompletado(desafioUsuarioD), false);
 	}
 	
 	@Test

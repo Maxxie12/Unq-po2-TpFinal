@@ -16,15 +16,24 @@ public class EstadoCompletado implements IEstadoDesafio{
 		
 	}
 
+
 	@Override
-	public void desafioVencido(DesafioUsuario desafioUsuario) {
-		// TODO Auto-generated method stub
+	public boolean esDesafioCompletado(DesafioUsuario desafioUsuario) {
+		return desafioUsuario.getMuestras().size() == desafioUsuario.getDesafio().getCantidadMuestrasARecolectar();
+	}
+
+	@Override
+	public void votarDesafio(DesafioUsuario desafioUsuario, Integer voto) {
+		if(voto <= 5) {
+			desafioUsuario.setVotos(desafioUsuario.getVotos() + voto);
+		}
 		
 	}
 
 	@Override
-	public boolean esDesafioCompletado() {
-		return true;
+	public boolean esDesafioVencido() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	

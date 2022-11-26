@@ -59,15 +59,10 @@ public class DesafioUsuarioTest {
 	@Test
 	public void testEsDesafioAceptadoEstado() {
 		desafioUsuario.aceptarDesafio();
-		assertEquals(desafioUsuario.getEstado().esDesafioCompletado(), false);
+		assertEquals(desafioUsuario.getEstado().esDesafioCompletado(desafioUsuario), false);
 	}
 	
-	@Test
-	public void testEsDesafioCompletado() {
-		desafioUsuario.setEstadoDesafio(new EstadoCompletado());
-		assertEquals(desafioUsuario.getEstado().esDesafioCompletado(), true);
-	}
-	
+
 	@Test
 	public void votarDesafioTest() {
 		desafioUsuario.setEstadoDesafio(new EstadoCompletado());
@@ -84,9 +79,10 @@ public class DesafioUsuarioTest {
 	
 	@Test
 	public void testesDesafioCompletado() {
+		desafioUsuario2.setEstadoDesafio(new EstadoCompletado());
 		desafioUsuario2.aceptarDesafio();
 		desafioUsuario2.agregarMuestra(muestra);
-		assertEquals(desafioUsuario2.getEstado().esDesafioCompletado(), new EstadoCompletado().esDesafioCompletado());
+		assertEquals(desafioUsuario2.getEstado().esDesafioCompletado(desafioUsuario2), new EstadoCompletado().esDesafioCompletado(desafioUsuario2));
 		
 	}
 	

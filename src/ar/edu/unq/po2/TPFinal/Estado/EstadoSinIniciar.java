@@ -14,13 +14,24 @@ public class EstadoSinIniciar implements IEstadoDesafio{
 		//No hace nada porque se completa desde otro estado.
 	}
 
+
 	@Override
-	public void desafioVencido(DesafioUsuario desafioUsuario) {
-		//No hace nada porque se completa desde otro estado.	
+	public void votarDesafio(DesafioUsuario desafioUsuario, Integer voto) {
+		//solo se puede votar cuando el desafio esta completado
+		
 	}
 
 	@Override
-	public boolean esDesafioCompletado() {
+	public boolean esDesafioVencido() {
+		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public boolean esDesafioCompletado(DesafioUsuario desafioUsuario) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
 }

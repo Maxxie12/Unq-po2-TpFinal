@@ -50,7 +50,7 @@ public class Usuario {
 	}
 
 	public List<DesafioUsuario> desafiosCompletados() {
-		return this.getDesafios().stream().filter(desafio -> desafio.getEstado().esDesafioCompletado()).toList();
+		return this.getDesafios().stream().filter(desafio -> desafio.getEstado().esDesafioCompletado(desafio)).toList();
 	}
 
 	public double porcentajeCompletitud(DesafioUsuario desafio) {
@@ -58,7 +58,7 @@ public class Usuario {
 	}
 
 	public boolean estaCompleto(DesafioUsuario desafio) {
-		return desafio.getEstado().esDesafioCompletado();
+		return desafio.getEstado().esDesafioCompletado(desafio);
 	}
 
 	public LocalDateTime fechaCompletado(DesafioUsuario desafio) {
@@ -105,7 +105,7 @@ public class Usuario {
 	private void limpiarDesafiosVencidos() {
 		int index = 0;
 		while (index <= this.desafios.size()) {
-			if (this.desafios.get(index).esDesafioVencido()) {
+			if (this.desafios.get(index).getEstado().esDesafioVencido()) {
 				this.getDesafios().remove(index);
 				index = index + 1;
 			}

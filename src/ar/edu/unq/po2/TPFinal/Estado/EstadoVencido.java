@@ -16,15 +16,24 @@ public class EstadoVencido implements IEstadoDesafio{
 		
 	}
 
+
 	@Override
-	public void desafioVencido(DesafioUsuario desafioUsuario) {
-		//Ver aca que lanzaria cuando esta vencido.
+	public void votarDesafio(DesafioUsuario desafioUsuario, Integer voto) {
+		//solo se puede votar cuando el desafio esta completado
 		
 	}
 
 	@Override
-	public boolean esDesafioCompletado() {
+	public boolean esDesafioVencido() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean esDesafioCompletado(DesafioUsuario desafioUsuario) {
+		// TODO Auto-generated method stub
 		return false;
 	}
+
 
 }
