@@ -7,25 +7,28 @@ public class EstadoCompletado implements IEstadoDesafio{
 
 	@Override
 	public void aceptarDesafio(DesafioUsuario desafioUsuario) {
-		// TODO Auto-generated method stub
+		// No hace nada porque ya esta aceptado
 		
 	}
 
 	@Override
 	public void votarDesafio(DesafioUsuario desafioUsuario, Integer voto) {
-		// TODO Auto-generated method stub
+		if(voto <= 5) {
+			desafioUsuario.setVotos(desafioUsuario.getVotos() + voto);
+		}
 		
 	}
 
 	@Override
 	public double getPorcentajeCompletititud(DesafioUsuario desafioUsuario) {
 		// TODO Auto-generated method stub
-		return 0;
+		return 100;
+
 	}
 
 	@Override
 	public void agregarMuestra(Muestra muestra, DesafioUsuario desafioUsuario) {
-		// TODO Auto-generated method stub
+		//No hace nada porque ya se completo
 		
 	}
 
