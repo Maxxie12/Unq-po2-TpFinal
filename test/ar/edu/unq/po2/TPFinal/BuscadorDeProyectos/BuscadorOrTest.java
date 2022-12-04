@@ -20,7 +20,7 @@ class BuscadorOrTest {
 	List<Categoria> categorias = new ArrayList<Categoria>();
 	BuscadorOr					 buscadorOr;
 	BuscadorPorTitulo 			 buscadorPorTitulo;
-	BuscadorIncluyendoCategorias buscadorIncluyendoCategorias;
+	BuscadorPorCategorias buscadorIncluyendoCategorias;
 
  
 	@Mock
@@ -42,54 +42,51 @@ class BuscadorOrTest {
 		List<Categoria> categoriasProyecto4  = new ArrayList<Categoria>();
 		  
 		  when(proyecto1.getNombre()).thenReturn("Alrededor del mundo.");
-	      when(proyecto2.getNombre()).thenReturn("Evolución y procesos geológicos y geoambientales en la región pampeana.");
-	      when(proyecto3.getNombre()).thenReturn("Separando las aguas.");
-	      when(proyecto4.getNombre()).thenReturn("Creando un tornado.");
 		  when(proyecto1.getCategorias()).thenReturn(categoriasProyecto1);
+		  categoriasProyecto1.add(categoria1);
+		  
+	      when(proyecto2.getNombre()).thenReturn("Evolución y procesos geológicos y geoambientales en la región pampeana.");
 	      when(proyecto2.getCategorias()).thenReturn(categoriasProyecto2);
+	      categoriasProyecto2.add(categoria1);
+	      categoriasProyecto2.add(categoria2);
+	      
+	      when(proyecto3.getNombre()).thenReturn("Separando las aguas.");
 	      when(proyecto3.getCategorias()).thenReturn(categoriasProyecto3);
+	      categoriasProyecto3.add(categoria3);
+	      
+	      when(proyecto4.getNombre()).thenReturn("Creando un tornado.");
 	      when(proyecto4.getCategorias()).thenReturn(categoriasProyecto4);
+	      categoriasProyecto4.add(categoria4);
+	      
 	      when(categoria1.getDescripcion()).thenReturn("Geografía");
 		  when(categoria2.getDescripcion()).thenReturn("Geología");
 		  when(categoria3.getDescripcion()).thenReturn("Química");
 		  when(categoria4.getDescripcion()).thenReturn("Fisica");
+		  
 		  proyectosAFiltrar.add(proyecto1);
 		  proyectosAFiltrar.add(proyecto2);     
 		  proyectosAFiltrar.add(proyecto3);
 		  proyectosAFiltrar.add(proyecto4);
-		  categoriasProyecto1.add(categoria1);
-		  categoriasProyecto2.add(categoria1);
-		  categoriasProyecto2.add(categoria2);
-		  categoriasProyecto3.add(categoria3);
-		  categoriasProyecto4.add(categoria4);
-		  buscadorIncluyendoCategorias = new BuscadorIncluyendoCategorias();
-		  buscadorIncluyendoCategorias.setCategorias(categorias);
-		  buscadorPorTitulo = new BuscadorPorTitulo();
-		  buscadorOr = new BuscadorOr();
+		  
+		  this.categorias.add(categoria3);
+		  this.categorias.add(categoria4);
+		  
+		  buscadorIncluyendoCategorias = new BuscadorPorCategorias(this.categorias);
+		  buscadorPorTitulo = new BuscadorPorTitulo("las aguas");
+		  buscadorOr = new BuscadorOr(buscadorPorTitulo, buscadorIncluyendoCategorias);
+		  
 
-	
 	}
 	
 	@Test
-	void buscadorOrNoContiene() {
-		buscadorOr.setPrimerBuscador(buscadorPorTitulo);
-		buscadorOr.setSegundoBuscador(buscadorIncluyendoCategorias);
-		this.categorias.add(categoria3);
-		buscadorPorTitulo.fraseABuscar("las aguas");
-		
-		assertFalse(buscadorOr.filtrar(proyectosAFiltrar).contains(proyecto4));
-		
-		
-	}
-	
-	@Test
-	void buscadorOr() {
-		buscadorOr.setPrimerBuscador(buscadorPorTitulo);
-		buscadorOr.setSegundoBuscador(buscadorIncluyendoCategorias);
-		this.categorias.add(categoria3);
-		buscadorPorTitulo.fraseABuscar("las aguas");
+	void buscadorOrContieneCategoria() {
 		
 		assertTrue(buscadorOr.filtrar(proyectosAFiltrar).contains(proyecto3));
+		assertFalse(buscadorOr.filtrar(proyectosAFiltrar).contains(proyecto4));
 	}
-	
+
+	@Test
+	void buscadorOrNoContiene() {	
+		assertFalse(buscadorOr.filtrar(proyectosAFiltrar).contains(proyecto4));
+	}
 }	

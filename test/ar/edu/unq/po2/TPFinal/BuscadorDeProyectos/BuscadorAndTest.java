@@ -22,7 +22,7 @@ class BuscadorAndTest {
 	List<Categoria> categorias = new ArrayList<Categoria>();
 	BuscadorAnd					 buscadorAnd;
 	BuscadorPorTitulo 			 buscadorPorTitulo;
-	BuscadorIncluyendoCategorias buscadorIncluyendoCategorias;
+	BuscadorPorCategorias buscadorIncluyendoCategorias;
 
  
 	@Mock
@@ -64,20 +64,17 @@ class BuscadorAndTest {
 		  categoriasProyecto2.add(categoria2);
 		  categoriasProyecto3.add(categoria3);
 		  categoriasProyecto4.add(categoria4);
-		  buscadorIncluyendoCategorias = new BuscadorIncluyendoCategorias();
-		  buscadorIncluyendoCategorias.setCategorias(categorias);
-		  buscadorPorTitulo = new BuscadorPorTitulo();
-		  buscadorAnd = new BuscadorAnd();
+		  buscadorIncluyendoCategorias = new BuscadorPorCategorias(this.categorias);
+		  
+		  buscadorPorTitulo = new BuscadorPorTitulo("las aguas");
+		  buscadorAnd = new BuscadorAnd(buscadorPorTitulo, buscadorIncluyendoCategorias);
 
+		  this.categorias.add(categoria3);
 	
 	}
 	
 	@Test
 	void buscadorAndNoContiene() {
-		buscadorAnd.setPrimerBuscador(buscadorPorTitulo);
-		buscadorAnd.setSegundoBuscador(buscadorIncluyendoCategorias);
-		this.categorias.add(categoria3);
-		buscadorPorTitulo.fraseABuscar("las aguas");
 		
 		assertFalse(buscadorAnd.filtrar(proyectosAFiltrar).contains(proyecto4));
 		
@@ -86,10 +83,6 @@ class BuscadorAndTest {
 	
 	@Test
 	void buscadorAnd() {
-		buscadorAnd.setPrimerBuscador(buscadorPorTitulo);
-		buscadorAnd.setSegundoBuscador(buscadorIncluyendoCategorias);
-		this.categorias.add(categoria3);
-		buscadorPorTitulo.fraseABuscar("las aguas");
 		
 		assertTrue(buscadorAnd.filtrar(proyectosAFiltrar).contains(proyecto3));
 	}
