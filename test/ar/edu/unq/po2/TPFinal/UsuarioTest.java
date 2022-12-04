@@ -16,7 +16,6 @@ import ar.edu.unq.po2.TPFinal.Common.Dificultad;
 import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
 import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
 import ar.edu.unq.po2.TPFinal.Estado.EstadoCompletado;
-import ar.edu.unq.po2.TPFinal.Estado.EstadoVencido;
 import ar.edu.unq.po2.TPFinal.Recomendador.RecomendadorPorPreferencia;
 import ar.edu.unq.po2.TPFinal.Restriccion.RestriccionFecha;
 
@@ -70,11 +69,9 @@ public class UsuarioTest {
 		desafioUsuarioD = new DesafioUsuario(desafioC);
 		
 		desafioUsuarioA.setEstadoDesafio(new EstadoCompletado());
-		desafioUsuarioB.setEstadoDesafio(new EstadoVencido());
 		desafioUsuarioC.setEstadoDesafio(new EstadoCompletado());
 		
-		
-		desafioUsuarioA.setPorcentajeCompletititud(2);
+	
 		desafioUsuarioB.setFechaCompletado(LocalDateTime.now());
 		
 		
@@ -87,7 +84,9 @@ public class UsuarioTest {
 		usuario.agregarDesafios(desafios);
 		usuario.setTipoRecomendacion(recomendadorPorPreferencia);
 		
-		sistema.setDesafios(desafios);
+		sistema.addDesafio(desafioA);
+		sistema.addDesafio(desafioB);
+		sistema.addDesafio(desafioC);
 		
 	
 		
@@ -120,7 +119,7 @@ public class UsuarioTest {
 	@Test
 	public void testPorcentajeCompletitud() {
 		
-		assertEquals(usuario.porcentajeCompletitud(desafioUsuarioA), 2);
+		assertEquals(usuario.porcentajeCompletitud(desafioUsuarioA), 100);
 	}
 	
 	@Test
@@ -149,7 +148,7 @@ public class UsuarioTest {
 	@Test
 	public void testAceptarDesafio() {
 		usuario.aceptarDesafio(desafioUsuarioD);
-		assertEquals(desafioUsuarioD.getEstado().esDesafioCompletado(desafioUsuarioD), false);
+		assertEquals(desafioUsuarioD.getEstado().getPorcentajeCompletititud(desafioUsuarioD), 0);
 	}
 	
 	@Test
