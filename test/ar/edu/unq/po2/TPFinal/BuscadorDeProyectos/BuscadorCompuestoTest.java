@@ -14,14 +14,14 @@ import org.mockito.Mock;
 import ar.edu.unq.po2.TPFinal.Proyecto;
 import ar.edu.unq.po2.TPFinal.Common.Categoria;
 
-class BusquedaAvanzadaTest {
+class BuscadorCompuestoTest {
 
 	List<Proyecto> proyectosAFiltrar = new ArrayList<Proyecto>();
 	List<Categoria> categorias = new ArrayList<Categoria>();
 	List<IBuscadorProyectos> buscadoresAAplicar = new ArrayList<IBuscadorProyectos>();
 	BuscadorNot buscadorNot;
 	BuscadorPorTitulo buscadorPorTitulo;
-	BuscadorIncluyendoCategorias buscadorIncluyendoCategorias;
+	BuscadorPorCategorias buscadorIncluyendoCategorias;
 	BuscadorCompuesto busquedaAvanzada;
 
 	@Mock
@@ -62,15 +62,13 @@ class BusquedaAvanzadaTest {
 		categoriasProyecto2.add(categoria2);
 		categoriasProyecto3.add(categoria3);
 		categoriasProyecto4.add(categoria4);
-		buscadorIncluyendoCategorias = new BuscadorIncluyendoCategorias();
-		buscadorIncluyendoCategorias.setCategorias(categorias);
-		buscadorPorTitulo = new BuscadorPorTitulo();
-		buscadorNot = new BuscadorNot();
+		buscadorIncluyendoCategorias = new BuscadorPorCategorias(this.categorias);
+		buscadorPorTitulo = new BuscadorPorTitulo("región pampeana");
+		buscadorNot = new BuscadorNot(buscadorPorTitulo);
 
 		busquedaAvanzada = new BuscadorCompuesto();
-		buscadorPorTitulo.fraseABuscar("región pampeana");
-		busquedaAvanzada.agregarBuscador(this.buscadorPorTitulo);
-		busquedaAvanzada.agregarBuscador(this.buscadorIncluyendoCategorias);
+		busquedaAvanzada.addBuscador(this.buscadorPorTitulo);
+		busquedaAvanzada.addBuscador(this.buscadorIncluyendoCategorias);
 		
 
 	}
@@ -90,7 +88,7 @@ class BusquedaAvanzadaTest {
 	
 	@Test
 	void listaResultanteSoloPorTitulo() {
-		busquedaAvanzada.quitarBuscador(this.buscadorIncluyendoCategorias);
+		busquedaAvanzada.removeBuscador(this.buscadorIncluyendoCategorias);
 		assertTrue(busquedaAvanzada.filtrar(proyectosAFiltrar).size() == 1);
 		assertTrue(busquedaAvanzada.filtrar(proyectosAFiltrar).contains(proyecto2));
 		assertFalse(busquedaAvanzada.filtrar(proyectosAFiltrar).contains(proyecto3));
@@ -99,9 +97,8 @@ class BusquedaAvanzadaTest {
 	
 	@Test
 	void listaResultanteDiferenteATitulo() {
-		busquedaAvanzada.quitarBuscador(this.buscadorPorTitulo);
-		buscadorNot.agregarBuscador(buscadorPorTitulo);
-		busquedaAvanzada.agregarBuscador(buscadorNot);
+		busquedaAvanzada.removeBuscador(this.buscadorPorTitulo);
+		busquedaAvanzada.addBuscador(buscadorNot);
 		assertTrue(!busquedaAvanzada.filtrar(proyectosAFiltrar).contains(proyecto2));
 
 	}
