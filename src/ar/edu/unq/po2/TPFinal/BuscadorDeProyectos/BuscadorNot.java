@@ -13,10 +13,10 @@ public class BuscadorNot implements IBuscadorProyectos {
 	}
 
 	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
-		List<Proyecto> busquedaNegada = proyectosAFiltrar;
-
-		busquedaNegada.removeAll(filtroBusqueda.filtrar(proyectosAFiltrar));
-
-		return busquedaNegada;
+		//Buscamos los proyectos segun el filtro que queremos negar
+		List<Proyecto> busquedaNegada = this.filtroBusqueda.filtrar(proyectosAFiltrar);
+		
+		//De los mismo proyectos que recibimos, filtramos los que no contienen la busqueda negada
+		return proyectosAFiltrar.stream().filter(p -> !busquedaNegada.contains(p)).toList();
 	}
 }
