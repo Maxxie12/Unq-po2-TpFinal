@@ -11,7 +11,7 @@ representan son:
 ```
 * Context:   DesafioUsuario 
 * State:   IEstadoDesafio  
-* ConcreteState: EstadioSinIniciar, EstadoAceptado, EstadoVencido y EstadoCompletado
+* ConcreteState: EstadioSinIniciar, EstadoAceptado y EstadoCompletado
 
 ```
 
@@ -24,7 +24,7 @@ RecomendadorPorFavorito. Los roles que representan son:
 
 ```
 * Context:  Usuario
-* Strategy:   IRecomendador  
+* Strategy:   Recomendador  
 * ConcreteStrategy: RecomendadorPorCoincidencia y RecomendadorPorFavorito
 
 ```
@@ -35,9 +35,9 @@ Primero utilizamos el patron Composite para la parte de busqueda de proyectos. L
 para poder hacer busquedas combinadas por titulares o categorias. Los roles que representan son:
 
 ```
-* Component:  BuscadorProyectos
-* Composite:  BusquedaAvanzada  
-* Leaf: BusquedaPorCategoria, BusquedaPorTitulo, BuscadorAnd, BuscadorOr y BuscadorNot
+* Component:  IBuscadorProyectos
+* Composite:  BuscadorCompuesto  
+* Leaf: BuscadorPorCategoria, BuscadorPorTitulo, BuscadorAnd, BuscadorOr y BuscadorNot
 
 ```
 Segundo utilizamos el patron Composite para las restricciones temporales que van a tener nuestros Desafios.
