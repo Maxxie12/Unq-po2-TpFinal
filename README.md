@@ -1,5 +1,13 @@
 # Unq-po2-TpFinal
 
+### Mockito y Java 📌
+
+* Para mockito se utilizaron los siguientes jar: https://github.com/MatiasGiraudo/unqui-po2-giraudo/tree/main/mockito
+* Se utilizo para los test Junit 5 y el Java utilizado es JavaSE-17
+
+# Tablero de tareas
+
+https://trello.com/b/jOS5yZQJ/cienciaparticipativa
 
 ## Patrones de diseño
 
@@ -51,11 +59,4 @@ Los roles que representan son:
 
 ```
 
-### Mockito y Java 📌
 
-* Para mockito se utilizaron los siguientes jar: https://github.com/MatiasGiraudo/unqui-po2-giraudo/tree/main/mockito
-* Se utilizo para los test Junit 5 y el Java utilizado es JavaSE-17
-
-# Tablero de tareas
-
-https://trello.com/b/jOS5yZQJ/cienciaparticipativa
