@@ -30,7 +30,7 @@ public class DesafioUsuario {
 	}
 
 	public void votarDesafio(Integer voto) {
-		this.estado.votarDesafio(this, voto);
+		this.getEstado().votarDesafio(this, voto);
 	}
 
 	public void setEstadoDesafio(IEstadoDesafio estado) {
@@ -40,17 +40,14 @@ public class DesafioUsuario {
 
 	public void agregarMuestra(Muestra muestra) {
 		
-		if(!this.estado.esDesafioVencido() && this.esAreaAceptada(muestra) && this.cumpleRestriccion(muestra)) {
-			this.muestras.add(muestra);
-		
-		
-			if(this.estado.esDesafioCompletado(this)) {
-				//cambio de estado el desafio porque fue completado
-				this.getEstado().desafioCompletado(this);
-				
-			}
-		
+		if(this.esAreaAceptada(muestra) && this.cumpleRestriccion(muestra)) {
+			//Hacemos que el estado agregue la muestra entonces nos ahorramos tener que preguntar sobre el estado del mismo.
+			this.getEstado().agregarMuestra(muestra, this);
 		}
+	}
+	
+	public boolean esDesafioCompleto() {
+		return this.getPorcentajeCompletititud() == 100;
 	}
 
 	private boolean cumpleRestriccion(Muestra muestra) {
@@ -79,7 +76,7 @@ public class DesafioUsuario {
 	}
 
 	public double getPorcentajeCompletititud() {
-		return this.porcentajeCompletititud;
+		return this.getEstado().getPorcentajeCompletititud(this);
 	}
 
 	public LocalDateTime getFechaCompletado() {
@@ -93,7 +90,6 @@ public class DesafioUsuario {
 	public void setFechaCompletado(LocalDateTime fechaCompletado) {
 		this.fechaCompletado = fechaCompletado;
 	}
-	
 	
 
 	public IEstadoDesafio getEstado() {
