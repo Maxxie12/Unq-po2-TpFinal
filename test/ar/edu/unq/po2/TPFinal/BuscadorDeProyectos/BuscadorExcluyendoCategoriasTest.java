@@ -1,6 +1,5 @@
 package ar.edu.unq.po2.TPFinal.BuscadorDeProyectos;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -16,7 +15,8 @@ import ar.edu.unq.po2.TPFinal.Proyecto;
 import ar.edu.unq.po2.TPFinal.Common.Categoria;
 
 class BuscadorExcluyendoCategoriasTest {
-	BuscadorExcluyendoCategorias buscadorExcluyendoCategorias;
+	BuscadorPorCategorias buscadorExcluyendoCategorias;
+	BuscadorNot buscadorNotCategorias;
 	List<Proyecto> proyectosAFiltrar = new ArrayList<Proyecto>();
 	List<Categoria> categorias = new ArrayList<Categoria>();
  
@@ -55,8 +55,8 @@ class BuscadorExcluyendoCategoriasTest {
 		  categoriasProyecto2.add(categoria2);
 		  categoriasProyecto3.add(categoria3);
 		  categoriasProyecto4.add(categoria4);
-		  buscadorExcluyendoCategorias = new BuscadorExcluyendoCategorias();
-		  buscadorExcluyendoCategorias.setCategorias(categorias);
+		  buscadorExcluyendoCategorias = new BuscadorPorCategorias(categorias);
+		  buscadorNotCategorias = new BuscadorNot(buscadorExcluyendoCategorias);
 
 	
 	}
@@ -65,7 +65,7 @@ class BuscadorExcluyendoCategoriasTest {
 	@Test
 	void testExcluyendoCategorias() {
 		this.categorias.add(categoria3);
-		assertFalse(buscadorExcluyendoCategorias.filtrar(this.proyectosAFiltrar).contains(this.proyecto3));
+		assertFalse(buscadorNotCategorias.filtrar(this.proyectosAFiltrar).contains(this.proyecto3));
 		
 	}
 	
@@ -74,7 +74,7 @@ class BuscadorExcluyendoCategoriasTest {
 	void testConVariasExcluyendoVariasCategorias() {
 		this.categorias.add(categoria1);
 		this.categorias.add(categoria2);
-		assertFalse(buscadorExcluyendoCategorias.filtrar(this.proyectosAFiltrar).contains(this.proyecto2));
+		assertFalse(buscadorNotCategorias.filtrar(this.proyectosAFiltrar).contains(this.proyecto2));
 	}
 	
 }

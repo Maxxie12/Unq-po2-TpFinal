@@ -16,7 +16,9 @@ private List<Categoria> categorias = new ArrayList<Categoria>();
 		this.categorias = categorias;
 	}
 
-
+	public List<Categoria> getCategorias() {
+		return categorias;
+	}
 
 	@Override
 	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {

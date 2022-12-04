@@ -11,7 +11,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
-import ar.edu.unq.po2.TPFinal.Proyecto;
 import ar.edu.unq.po2.TPFinal.Common.Categoria;
 
 class BuscadorPorCategoriasTest {
@@ -36,21 +35,18 @@ class BuscadorPorCategoriasTest {
 	    categorias.add(categoria2);
 	    categorias.add(categoria3);
 	    categorias.add(categoria4);
-	    buscadorPorCategorias = new BuscadorPorCategorias();
-	    buscadorPorCategorias.setCategorias(categorias);
+	    
+	    this.buscadorPorCategorias = new BuscadorPorCategorias(categorias);
 	}
     
     
     @Test
-    void testBuscadorPorCategorias() {
-    	
+    void testContieneCategoriaAsignada() {  	
     	assertTrue(buscadorPorCategorias.getCategorias().contains(categoria2));
-      
- 
-    }
+     }
     
     @Test
-    void testBuscadorPorCategoriasContieneLasCategoriasDadas() {
+    void testContieneCantidadCategoriasDadad() {
       assertTrue(buscadorPorCategorias.getCategorias().size()==4);
     }
     

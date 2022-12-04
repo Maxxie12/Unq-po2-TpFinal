@@ -17,7 +17,7 @@ import ar.edu.unq.po2.TPFinal.Common.Categoria;
 
 class BuscadorIncluyendoCategoriasTest {
 	
-	BuscadorIncluyendoCategorias buscadorIncluyendoCategorias;
+	BuscadorPorCategorias buscadorIncluyendoCategorias;
 
 	List<Proyecto> proyectosAFiltrar = new ArrayList<Proyecto>();
 	List<Categoria> categorias = new ArrayList<Categoria>();
@@ -57,9 +57,7 @@ class BuscadorIncluyendoCategoriasTest {
 		  categoriasProyecto2.add(categoria2);
 		  categoriasProyecto3.add(categoria3);
 		  categoriasProyecto4.add(categoria4);
-		  buscadorIncluyendoCategorias = new BuscadorIncluyendoCategorias();
-		  buscadorIncluyendoCategorias.setCategorias(categorias);
-
+		  buscadorIncluyendoCategorias = new BuscadorPorCategorias(this.categorias);
 	
 	}
 	
