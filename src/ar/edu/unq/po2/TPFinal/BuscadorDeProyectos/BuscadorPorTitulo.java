@@ -11,6 +11,14 @@ public class BuscadorPorTitulo implements IBuscadorProyectos {
 		this.fraseABuscar = fraseABuscar;
 	}
 
+	public String getFraseABuscar() {
+		return fraseABuscar;
+	}
+
+	public void setFraseABuscar(String fraseABuscar) {
+		this.fraseABuscar = fraseABuscar;
+	}
+
 	@Override
 	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
 		List<Proyecto> resultadosDeLaBusqueda = new ArrayList<Proyecto>();

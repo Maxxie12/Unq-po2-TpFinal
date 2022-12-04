@@ -13,11 +13,10 @@ import org.mockito.Mock;
 import ar.edu.unq.po2.TPFinal.Proyecto;
 
 class BuscadorPorTituloTest {
-	
-	private String fraseABuscar = "";
+
 	List<Proyecto> proyectosAFiltrar = new ArrayList<Proyecto>();
-	BuscadorPorTitulo buscadorPorTitulo;   
-	
+	BuscadorPorTitulo buscadorPorTitulo;  
+
 	@Mock
 	Proyecto proyecto1 = mock(Proyecto.class);
     Proyecto proyecto2 = mock(Proyecto.class);
@@ -37,22 +36,20 @@ class BuscadorPorTituloTest {
 		proyectosAFiltrar.add(proyecto3);
 		proyectosAFiltrar.add(proyecto4);
 		
-		buscadorPorTitulo = new BuscadorPorTitulo();
+		buscadorPorTitulo = new BuscadorPorTitulo("procesos geológicos");
     }
-    
-    
    
     @Test
-    void testBuscadorPorTituloEncontrado(){
-    	buscadorPorTitulo.fraseABuscar("procesos geológicos");
-    	
+    void testBuscadorPorTituloEncontrado(){   	
     	assertTrue(buscadorPorTitulo.filtrar(proyectosAFiltrar).contains(proyecto2));
+    	assertFalse(buscadorPorTitulo.filtrar(proyectosAFiltrar).contains(proyecto1));
+    	assertFalse(buscadorPorTitulo.filtrar(proyectosAFiltrar).contains(proyecto3));
+    	assertFalse(buscadorPorTitulo.filtrar(proyectosAFiltrar).contains(proyecto4));
     }
 
     @Test
     void testBuscadorPorTituloNoEncontrado(){
-    	buscadorPorTitulo.fraseABuscar("Titulo inexistente");
-    	
+    	buscadorPorTitulo.setFraseABuscar("Titulo inexistente");
     	assertFalse(buscadorPorTitulo.filtrar(proyectosAFiltrar).size()>0);
     }
 	 
