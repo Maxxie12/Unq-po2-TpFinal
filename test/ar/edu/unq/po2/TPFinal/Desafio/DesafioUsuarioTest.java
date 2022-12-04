@@ -87,5 +87,11 @@ public class DesafioUsuarioTest {
 		
 	}
 	
+	@Test
+	public void validarCompletado() {
+		desafioUsuario2.setEstadoDesafio(new EstadoCompletado());
+		assertTrue(desafioUsuario2.esDesafioCompleto());
+	}
+	
 
 }
