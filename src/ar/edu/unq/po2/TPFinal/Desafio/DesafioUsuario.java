@@ -12,7 +12,6 @@ import ar.edu.unq.po2.TPFinal.Estado.IEstadoDesafio;
 public class DesafioUsuario {
 	private Desafio desafio;
 	private List<Muestra> muestras;
-	private double porcentajeCompletititud;
 	private LocalDateTime fechaCompletado;
 	private IEstadoDesafio estado;
 	private int votos;
@@ -20,7 +19,6 @@ public class DesafioUsuario {
 	public DesafioUsuario(Desafio desafio) {
 		this.desafio = desafio;
 		this.muestras = new ArrayList<Muestra>();
-		this.porcentajeCompletititud = 0;
 		this.estado = new EstadoSinIniciar(); //Seteamos siempre el estado inicial
 		this.votos = 0;
 	}
@@ -83,10 +81,6 @@ public class DesafioUsuario {
 		return this.fechaCompletado;
 	}
 
-	public void setPorcentajeCompletititud(double porcentajeCompletititud) {
-		this.porcentajeCompletititud = porcentajeCompletititud;
-	}
-	
 	public void setFechaCompletado(LocalDateTime fechaCompletado) {
 		this.fechaCompletado = fechaCompletado;
 	}
