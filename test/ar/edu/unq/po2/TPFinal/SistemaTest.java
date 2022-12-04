@@ -50,27 +50,24 @@ public class SistemaTest {
 	
 	@Test
 	public void testDesafiosAgregados() {
-		desafios.add(desafioA);
-		desafios.add(desafioB);
-		desafios.add(desafioC);
-		sistema.setDesafios(desafios);
+		sistema.addDesafio(desafioA);
+		sistema.addDesafio(desafioB);
+		sistema.addDesafio(desafioC);
 		
 		assertEquals(sistema.getDesafios().size(), 3);
 	}
 	
 	@Test
 	public void testProyectosAgregados() {
-		proyectos.add(proyectoA);
-		sistema.setProyectos(proyectos);
+		sistema.addProyecto(proyectoA);
 		
 		assertEquals(sistema.getProyectos().size(), 1);
 	}
 	
 	@Test
 	public void testUsuariosAgregados() {
-		usaurios.add(usuarioA);
-		usaurios.add(usuarioB);
-		sistema.setUsuarios(usaurios);
+		sistema.addUsuario(usuarioA);
+		sistema.addUsuario(usuarioB);
 		
 		assertEquals(sistema.getUsuarios().size(), 2);
 	}
