@@ -7,13 +7,13 @@ public class EstadoSinIniciar implements IEstadoDesafio{
 
 	@Override
 	public void aceptarDesafio(DesafioUsuario desafioUsuario) {
-		// TODO Auto-generated method stub
+		desafioUsuario.setEstadoDesafio(new EstadoAceptado());
 		
 	}
 
 	@Override
 	public void votarDesafio(DesafioUsuario desafioUsuario, Integer voto) {
-		// TODO Auto-generated method stub
+		//Solo se puede votar cuando el desafio esta completado
 		
 	}
 
@@ -25,7 +25,7 @@ public class EstadoSinIniciar implements IEstadoDesafio{
 
 	@Override
 	public void agregarMuestra(Muestra muestra, DesafioUsuario desafioUsuario) {
-		// TODO Auto-generated method stub
+		// Solo puede agregar muestra en el estado Aceptado y no Completado
 		
 	}
 
