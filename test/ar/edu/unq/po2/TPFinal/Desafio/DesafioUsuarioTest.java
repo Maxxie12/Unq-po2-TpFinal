@@ -9,24 +9,19 @@ import ar.edu.unq.po2.TPFinal.Usuario;
 import ar.edu.unq.po2.TPFinal.Common.Circulo;
 import ar.edu.unq.po2.TPFinal.Common.Coordenada;
 import ar.edu.unq.po2.TPFinal.Common.Dificultad;
-import ar.edu.unq.po2.TPFinal.Desafio.Desafio;
-import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
+import ar.edu.unq.po2.TPFinal.Estado.EstadoAceptado;
 import ar.edu.unq.po2.TPFinal.Estado.EstadoCompletado;
 import ar.edu.unq.po2.TPFinal.Restriccion.RestriccionFecha;
 
 import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.CALLS_REAL_METHODS;
-import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
-import static org.mockito.Mockito.when;
 
 import java.time.LocalDateTime;
 
 public class DesafioUsuarioTest {
 	DesafioUsuario desafioUsuario;
 	
-	@Mock
 	Desafio desafio;
 	
 	//Prueba para agregar una Muestra
@@ -42,12 +37,16 @@ public class DesafioUsuarioTest {
 	
 	@BeforeEach
 	public void setUp() {
-		desafioUsuario = new DesafioUsuario(desafio);
 		
-		//Prueba para agregar una Muestra
 		coordenada = new Coordenada(2, 3);
 		area = new Circulo(coordenada, 5);
 		restriccionFecha = new RestriccionFecha(LocalDateTime.now(), LocalDateTime.now());
+		
+		desafio = new Desafio(area, restriccionFecha, 1, Dificultad.INTERMEDIO, 2);
+		desafioUsuario = new DesafioUsuario(desafio);
+		
+		//Prueba para agregar una Muestra
+		
 		
 		desafio2 = new Desafio(area, restriccionFecha, 1, Dificultad.FACIL, 2);
 		desafioUsuario2 = new DesafioUsuario(desafio2);
@@ -59,7 +58,8 @@ public class DesafioUsuarioTest {
 	@Test
 	public void testEsDesafioAceptadoEstado() {
 		desafioUsuario.aceptarDesafio();
-		assertEquals(desafioUsuario.getEstado().esDesafioCompletado(desafioUsuario), false);
+		desafioUsuario.agregarMuestra(muestra);
+		assertEquals(desafioUsuario.getEstado().getPorcentajeCompletititud(desafioUsuario), 0);
 	}
 	
 
@@ -73,6 +73,7 @@ public class DesafioUsuarioTest {
 	
 	@Test
 	public void testAgregarMuestra() {
+		desafioUsuario2.setEstadoDesafio(new EstadoAceptado());
 		desafioUsuario2.agregarMuestra(muestra);
 		assertEquals(desafioUsuario2.getMuestras().size(), 1);
 	}
@@ -82,7 +83,7 @@ public class DesafioUsuarioTest {
 		desafioUsuario2.setEstadoDesafio(new EstadoCompletado());
 		desafioUsuario2.aceptarDesafio();
 		desafioUsuario2.agregarMuestra(muestra);
-		assertEquals(desafioUsuario2.getEstado().esDesafioCompletado(desafioUsuario2), new EstadoCompletado().esDesafioCompletado(desafioUsuario2));
+		assertEquals(desafioUsuario2.getEstado().getPorcentajeCompletititud(desafioUsuario2), 100);
 		
 	}
 	
