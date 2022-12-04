@@ -2,8 +2,8 @@
 
 ### Mockito y Java 📌
 
-* Para mockito se utilizaron los siguientes jar: https://github.com/MatiasGiraudo/unqui-po2-giraudo/tree/main/mockito
 * Se utilizo para los test Junit 5 y el Java utilizado es JavaSE-17
+* Para mockito se utilizaron los siguientes jar: https://github.com/MatiasGiraudo/unqui-po2-giraudo/tree/main/mockito
 
 # Tablero de tareas
 
