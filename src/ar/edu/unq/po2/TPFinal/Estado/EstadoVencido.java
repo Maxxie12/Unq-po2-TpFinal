@@ -1,39 +1,35 @@
 package ar.edu.unq.po2.TPFinal.Estado;
 
+import ar.edu.unq.po2.TPFinal.Muestra;
 import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
 
 public class EstadoVencido implements IEstadoDesafio{
 
 	@Override
 	public void aceptarDesafio(DesafioUsuario desafioUsuario) {
-		//No hace nada porque se completa desde otro estado.
+		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public void desafioCompletado(DesafioUsuario desafioUsuario) {
-		//No hace nada porque se completa desde otro estado.
-		
-	}
-
 
 	@Override
 	public void votarDesafio(DesafioUsuario desafioUsuario, Integer voto) {
-		//solo se puede votar cuando el desafio esta completado
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public boolean esDesafioVencido() {
+	public double getPorcentajeCompletititud(DesafioUsuario desafioUsuario) {
 		// TODO Auto-generated method stub
-		return true;
+		return 0;
 	}
 
 	@Override
-	public boolean esDesafioCompletado(DesafioUsuario desafioUsuario) {
+	public void agregarMuestra(Muestra muestra, DesafioUsuario desafioUsuario) {
 		// TODO Auto-generated method stub
-		return false;
+		
 	}
+
+	
 
 
 }

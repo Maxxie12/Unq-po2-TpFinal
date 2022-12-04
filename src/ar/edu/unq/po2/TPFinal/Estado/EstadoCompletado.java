@@ -1,5 +1,6 @@
 package ar.edu.unq.po2.TPFinal.Estado;
 
+import ar.edu.unq.po2.TPFinal.Muestra;
 import ar.edu.unq.po2.TPFinal.Desafio.DesafioUsuario;
 
 public class EstadoCompletado implements IEstadoDesafio{
@@ -11,30 +12,24 @@ public class EstadoCompletado implements IEstadoDesafio{
 	}
 
 	@Override
-	public void desafioCompletado(DesafioUsuario desafioUsuario) {
-		desafioUsuario.setEstadoDesafio(this);
-		
-	}
-
-
-	@Override
-	public boolean esDesafioCompletado(DesafioUsuario desafioUsuario) {
-		return desafioUsuario.getMuestras().size() == desafioUsuario.getDesafio().getCantidadMuestrasARecolectar();
-	}
-
-	@Override
 	public void votarDesafio(DesafioUsuario desafioUsuario, Integer voto) {
-		if(voto <= 5) {
-			desafioUsuario.setVotos(desafioUsuario.getVotos() + voto);
-		}
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public boolean esDesafioVencido() {
+	public double getPorcentajeCompletititud(DesafioUsuario desafioUsuario) {
 		// TODO Auto-generated method stub
-		return false;
+		return 0;
 	}
+
+	@Override
+	public void agregarMuestra(Muestra muestra, DesafioUsuario desafioUsuario) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 	
 
