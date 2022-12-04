@@ -158,6 +158,13 @@ public class UsuarioTest {
 		
 	}
 	
+	@Test
+	public void testVotarDesafio() {
+		usuario.votarDesafioUsuario(desafioUsuarioA);
+		assertEquals(desafioUsuarioA.getVotos(), 1);
+		
+	}
+	
 
 	
 
